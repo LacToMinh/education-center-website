@@ -1,0 +1,18 @@
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+.container {
+  width: 95%;
+  margin: auto;
+}
