@@ -6,6 +6,9 @@ import Cart from "../pages/Cart";
 import Offices from "../pages/Offices";
 import Timetable from "../pages/Timetable";
 import Branches from "../components/Branches";
+import ToeicDetail from "../pages/ToeicDetail";
+import IeltsDetail from "../pages/IeltsDetail";
+import StorePage from "../pages/Store";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +20,9 @@ const router = createBrowserRouter([
       { path: "cart", element: <Cart /> },
       { path: "schedule", element: <Timetable /> },
       { path: "branches", element: <Branches /> },
-      { path: "offices", element: <Offices /> },
+      { path: "/khoa-hoc/ielts", element: <IeltsDetail /> },
+      { path: "/khoa-hoc/toeic", element: <ToeicDetail /> },
+      { path: "store", element: <StorePage /> },
     ],
   },
 ]);

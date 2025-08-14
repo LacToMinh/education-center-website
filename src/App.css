@@ -16,3 +16,71 @@ body {
   width: 85%;
   margin: auto;
 }
+
+/* thcs-card */
+/* <= 389px: siêu nhỏ */
+@media (max-width: 389px){
+  /* 2 box/1 hàng vẫn thoáng hơn */
+  .productsSlider .swiper-slide{ width: calc(50% - 6px) !important; }
+
+  /* Nút điều hướng nhỏ thêm chút */
+  .productsSlider .swiper{ --swiper-navigation-size:16px; }
+  .productsSlider .swiper-button-next,
+  .productsSlider .swiper-button-prev{
+    width:24px; height:24px; top:42%;
+  }
+
+  /* Card THCS nén lại */
+  .thcs-card{ height:215px !important; }                  /* override h-[260px] */
+  .thcs-card .card-img{ height:140px !important; padding:6px !important; }
+
+  /* Chữ & badge */
+  .thcs-card .title{ font-size:14px !important; }
+  .thcs-card .price{ font-size:11px !important; }
+  .thcs-card .old-price{ font-size: 11px !important; }
+  .thcs-card .promo-pill{ font-size:10px !important; padding:2px 8px !important; margin-left:6px !important; }
+  .thcs-card .ribbon{ font-size:10px !important; padding:2px 6px !important; }
+}
+/* end thcs-card */
+
+
+/* chỉ mobile */
+@media (max-width: 639px){
+  .productsSlider .swiper-slide{ width: calc(50% - 8px) !important; }
+}
+
+/* Swiper nav cho mobile */
+@media (max-width: 639px) {
+  /* Đổi màu mũi tên & size chuẩn của Swiper */
+  .productsSlider .swiper {
+    --swiper-navigation-size: 18px;   /* size icon mũi tên */
+    --swiper-theme-color: #111111;    /* màu icon (đen) */
+  }
+
+  /* Kích thước/nền/định vị nút */
+  .productsSlider .swiper-button-next,
+  .productsSlider .swiper-button-prev {
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+    background: rgba(0,0,0,0.06);   /* nền mờ cho dễ bấm, vẫn nhẹ nhàng */
+    color: #111111;                 /* đề phòng theme variable không ăn */
+    top: 45%;
+  }
+
+  /* Font-size icon – phòng trường hợp biến không áp dụng */
+  .productsSlider .swiper-button-next::after,
+  .productsSlider .swiper-button-prev::after {
+    font-size: 18px;
+  }
+
+  /* Thu hẹp sát mép cho khỏi che nội dung */
+  .productsSlider .swiper-button-prev { left: 6px; }
+  .productsSlider .swiper-button-next { right: 6px; }
+
+  /* Khi disabled thì mờ hơn chút */
+  .productsSlider .swiper-button-disabled {
+    opacity: 0.35 !important;
+  }
+}
+

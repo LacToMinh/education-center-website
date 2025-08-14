@@ -137,11 +137,13 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Tooltip title="giỏ hàng" placement="top">
-                <button aria-label="cart">
-                  <IoCartOutline className="text-[26px] md:text-[30px]" />
-                </button>
-              </Tooltip>
+              <Link to="/store">
+                <Tooltip title="giỏ hàng" placement="top">
+                  <button aria-label="cart">
+                    <IoCartOutline className="text-[26px] md:text-[30px]" />
+                  </button>
+                </Tooltip>
+              </Link>
             </li>
           </ul>
         </div>

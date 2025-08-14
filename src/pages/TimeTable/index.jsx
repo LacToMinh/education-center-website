@@ -37,6 +37,14 @@ const TTB_DATA = {
       room: "P101",
       teacher: "Cô Nhi",
     },
+    {
+      day: 7,
+      start: "18:00",
+      end: "19:30",
+      subject: "Ín Lizsh",
+      room: "P101",
+      teacher: "Cô Sỹ",
+    },
   ],
   7: [
     {
@@ -46,6 +54,14 @@ const TTB_DATA = {
       subject: "Toán",
       room: "P201",
       teacher: "Thầy Minh",
+    },
+    {
+      day: 3,
+      start: "16:30",
+      end: "18:00",
+      subject: "Văn",
+      room: "P201",
+      teacher: "Cô Linh",
     },
     {
       day: 5,
