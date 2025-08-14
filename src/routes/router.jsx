@@ -3,8 +3,7 @@ import RootLayout from "../layouts/RootLayout";
 import NotFound from "../pages/Error";
 import Home from "../pages/Home";
 import Cart from "../pages/Cart";
-import Offices from "../pages/Offices";
-import Timetable from "../pages/Timetable";
+import TimeTable from "../pages/TimeTable"
 import Branches from "../components/Branches";
 import ToeicDetail from "../pages/ToeicDetail";
 import IeltsDetail from "../pages/IeltsDetail";
@@ -18,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "cart", element: <Cart /> },
-      { path: "schedule", element: <Timetable /> },
+      { path: "schedule", element: <TimeTable /> },
       { path: "branches", element: <Branches /> },
       { path: "/khoa-hoc/ielts", element: <IeltsDetail /> },
       { path: "/khoa-hoc/toeic", element: <ToeicDetail /> },

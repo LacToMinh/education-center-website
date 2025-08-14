@@ -293,7 +293,7 @@ const toMinutes = (hhmm) => {
   return h * 60 + m;
 };
 
-export default function Timetable() {
+export default function TimeTable() {
   const classes = useMemo(() => classRange(6, 12), []);
   const [grade, setGrade] = useState(6);
 
