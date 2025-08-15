@@ -1,24 +1,21 @@
 import { useEffect, useRef, useState } from "react";
-import { FcBullish } from "react-icons/fc";
-import { FcAbout } from "react-icons/fc";
+import { FcBullish, FcAbout } from "react-icons/fc";
 
-function useInView(options = { threshold: 0.9 }) {
+function useInView(options = { threshold: 0.3 }) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setInView(true);
-        io.disconnect(); // chỉ chạy 1 lần
+        io.disconnect();
       }
     }, options);
     io.observe(el);
     return () => io.disconnect();
   }, [options]);
-
   return { ref, inView };
 }
 
@@ -30,16 +27,13 @@ function useCountUp(start = 0, end = 100, duration = 1500, run = false) {
       typeof window !== "undefined" &&
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
     if (reduceMotion) {
       setValue(end);
       return;
     }
-
     let raf = 0;
     const t0 = performance.now();
     const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
-
     const tick = (t) => {
       const p = Math.min(1, (t - t0) / duration);
       const eased = easeOutCubic(p);
@@ -49,7 +43,6 @@ function useCountUp(start = 0, end = 100, duration = 1500, run = false) {
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [start, end, duration, run]);
-
   return value;
 }
 
@@ -63,7 +56,7 @@ export default function StatsStrip() {
       icon: <FcAbout />,
     },
     {
-      title: "Tài liệu",
+      title: "TÀI LIỆU",
       desc: "Hơn 5.000 tài liệu chất lượng, bám sát chương trình, luôn được cập nhật.",
       end: 5000,
       suffix: "+",
@@ -77,8 +70,8 @@ export default function StatsStrip() {
       icon: "👨‍🏫",
     },
     {
-      title: "năm kinh nghiệm",
-      desc: "Đội ngũ giáo viên hơn 10 năm kinh nghiệm giảng dạy",
+      title: "NĂM KINH NGHIỆM",
+      desc: "Đội ngũ giáo viên hơn 10 năm kinh nghiệm giảng dạy.",
       end: 10,
       suffix: "+",
       icon: <FcBullish />,
@@ -90,37 +83,81 @@ export default function StatsStrip() {
   return (
     <section
       ref={ref}
-      className="w-full bg-[#FFD700] text-black my-12"
+      className="w-full bg-[#FFD700] text-black my-10 sm:my-12 lg:my-16"
       aria-label="Thống kê trung tâm"
     >
-      <div className="container mx-auto px-4 py-14">
-        <ul className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
+        <ul
+          className="
+           grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4
+            gap-8 sm:gap-10 lg:gap-12
+          "
+        >
           {items.map((it, i) => {
-            const val = useCountUp(0, it.end, 1400 + i * 200, inView);
-            // format 30,000
+            const val = useCountUp(0, it.end, 1300 + i * 180, inView);
             const formatted = val.toLocaleString("vi-VN");
 
             return (
-              <li key={it.title} className="text-center max-w-[520px] mx-auto">
-                {/* Icon đơn giản, bạn có thể thay bằng react-icons */}
-                <div className="text-5xl mb-6 opacity-90 flex items-center justify-center">
+              <li
+                key={it.title}
+                className="
+                  text-center max-w-[560px] mx-auto
+                  px-2 sm:px-3 lg:px-4
+                "
+              >
+                {/* Icon */}
+                <div
+                  className="
+                    mb-4 sm:mb-5 lg:mb-6 opacity-90
+                    flex items-center justify-center
+                    text-[clamp(32px,8vw,56px)]
+                  "
+                  aria-hidden="true"
+                >
                   {it.icon}
                 </div>
 
-                <div className="text-[20px] tracking-widest font-bold uppercase opacity-90">
+                {/* Title */}
+                <h3
+                  className="
+                    uppercase font-bold opacity-90
+                    tracking-[0.12em] sm:tracking-[0.18em]
+                    text-[11px] sm:text-[15px] lg:text-[18px]
+                  "
+                >
                   {it.title}
-                </div>
+                </h3>
 
-                <div className="mt-4 flex items-center justify-center">
-                  <span className="text-6xl font-extrabold leading-none">
+                {/* Number + suffix */}
+                <div className="mt-3 sm:mt-4 lg:mt-5 flex items-end justify-center">
+                  <span
+                    className="
+                      font-extrabold leading-none
+                      text-[26px] sm:text-[40px] lg:text-[56px]
+                    "
+                  >
                     {formatted}
                   </span>
-                  <span className="text-6xl font-extrabold leading-none pl-2">
+                  <span
+                    className="
+                      font-extrabold leading-none pl-1 sm:pl-2
+                      text-[clamp(22px,7vw,48px)]
+                    "
+                    aria-hidden="true"
+                  >
                     {it.suffix}
                   </span>
                 </div>
 
-                <p className="mt-6 text-[15px] leading-7 text-black">
+                {/* Description */}
+                <p
+                  className="
+                    mt-3 sm:mt-4 lg:mt-5
+                    text-[10px] sm:text-[14px] lg:text-[15px]
+                    leading-[1.6]
+                    max-w-[46ch] mx-auto
+                  "
+                >
                   {it.desc}
                 </p>
               </li>
