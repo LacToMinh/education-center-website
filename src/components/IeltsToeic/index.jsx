@@ -19,7 +19,11 @@ export default function IeltsToeic({
     level: "Band 4.0 → 7.0",
     hours: "36 giờ/khoá",
     price: "3.490.000đ/tháng",
-    bullets: ["Lộ trình cá nhân hoá", "Speaking sửa trực tiếp", "Test Cambridge tuần"],
+    bullets: [
+      "Lộ trình cá nhân hoá",
+      "Speaking sửa trực tiếp",
+      "Test Cambridge tuần",
+    ],
     detailHref: "/khoa-hoc/ielts",
     zaloHref: "https://zalo.me/0369984849",
     themeFrom: "#ff3b30",
@@ -31,7 +35,11 @@ export default function IeltsToeic({
     level: "450+ → 800+",
     hours: "32 giờ/khoá",
     price: "2.490.000đ/tháng",
-    bullets: ["Ngân hàng 2000+ câu", "Chiến thuật Part 5–7", "Thi thử chuẩn IIG"],
+    bullets: [
+      "Ngân hàng 2000+ câu",
+      "Chiến thuật Part 5–7",
+      "Thi thử chuẩn IIG",
+    ],
     detailHref: "/khoa-hoc/toeic",
     zaloHref: "https://zalo.me/0369984849",
     themeFrom: "#1e6ee9",
@@ -56,9 +64,18 @@ export default function IeltsToeic({
     hidden: { opacity: 0, y: -80 },
     show: { opacity: 1, y: 0, transition: { duration: 1.2, ease } },
   };
-  const dividerVar = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { duration: 1 } } };
-  const listVar = { hidden: {}, show: { transition: { staggerChildren: 0.25, delayChildren: 0.3 } } };
-  const fromBottom = { hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0, transition: { duration: 1, ease } } };
+  const dividerVar = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { duration: 1 } },
+  };
+  const listVar = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.25, delayChildren: 0.3 } },
+  };
+  const fromBottom = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 1, ease } },
+  };
 
   const [openIdx, setOpenIdx] = useState(null); // 0 = left, 1 = right
 
@@ -67,7 +84,7 @@ export default function IeltsToeic({
       variants={variants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.4 }}
       className="relative group h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden will-change-transform rounded-2xl"
       onMouseLeave={() => setOpenIdx(null)}
     >
@@ -85,13 +102,21 @@ export default function IeltsToeic({
         aria-label={`Xem thông tin khoá ${course.title}`}
         onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
         className={`absolute inset-0 w-full h-full text-left transition-opacity duration-500
-          ${openIdx === idx ? "opacity-100" : "opacity-0 md:group-hover:opacity-100"}`}
+          ${
+            openIdx === idx
+              ? "opacity-100"
+              : "opacity-0 md:group-hover:opacity-100"
+          }`}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-transparent" />
         <div
           className={`absolute left-3 right-3 bottom-3 md:left-4 md:right-4 md:bottom-4 
                       translate-y-6 md:translate-y-3 
-                      ${openIdx === idx ? "translate-y-0" : "md:group-hover:translate-y-0"}
+                      ${
+                        openIdx === idx
+                          ? "translate-y-0"
+                          : "md:group-hover:translate-y-0"
+                      }
                       transition-transform duration-500`}
         >
           <div className="rounded-2xl p-4 md:p-5 bg-white/90 backdrop-blur-md shadow-xl">
@@ -170,7 +195,13 @@ export default function IeltsToeic({
   return (
     <section className="container mx-auto" id="ielts-toeic">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 my-8">
-        <Poster imgSrc={leftImage} alt="IELTS" variants={leftVariant} course={leftCourse} idx={0} />
+        <Poster
+          imgSrc={leftImage}
+          alt="IELTS"
+          variants={leftVariant}
+          course={leftCourse}
+          idx={0}
+        />
 
         {/* CENTER block giữ hiệu ứng cũ */}
         <motion.div
@@ -192,10 +223,16 @@ export default function IeltsToeic({
           >
             {headlineTop}
           </motion.p>
-          <motion.h2 variants={fromTop} className="text-3xl font-bold text-[#0a1b50]">
+          <motion.h2
+            variants={fromTop}
+            className="text-3xl font-bold text-[#0a1b50]"
+          >
             <img src={text_dayhocvaluyenthi} alt="dayhocvaluyenthi.com" />
           </motion.h2>
-          <motion.div variants={dividerVar} className="my-10 h-[2px] w-[20%] bg-black" />
+          <motion.div
+            variants={dividerVar}
+            className="my-10 h-[2px] w-[20%] bg-black"
+          />
           <motion.ul variants={listVar} className="space-y-2">
             {bullets.map((b, i) => (
               <motion.li
@@ -209,7 +246,13 @@ export default function IeltsToeic({
           </motion.ul>
         </motion.div>
 
-        <Poster imgSrc={rightImage} alt="TOEIC" variants={rightVariant} course={rightCourse} idx={1} />
+        <Poster
+          imgSrc={rightImage}
+          alt="TOEIC"
+          variants={rightVariant}
+          course={rightCourse}
+          idx={1}
+        />
       </div>
 
       <p className="mt-2 text-center text-sm text-slate-500 md:hidden">

@@ -7,7 +7,7 @@ import CourseItemTHCS from "../CourseItemTHCS";
 const CourseSliderTHPT = (props) => {
   return (
     <div className="productsSlider">
-      <div className="container !w-full px-2 sm:px-0">
+      <div className="container !w-full px-0 sm:px-0">
         <Swiper
           navigation
           modules={[Navigation]}

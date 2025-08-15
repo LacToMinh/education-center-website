@@ -132,12 +132,12 @@ const CourseItemTHPT = () => {
   return (
     <>
       <div
-        className="group relative overflow-hidden w-full rounded-lg my-6 shadow-[0_1px_8px_rgba(0,0,0,0.1)] h-[375px] bg-white"
+        className="thcs-card group relative overflow-hidden w-full rounded-lg my-4 shadow-[0_1px_8px_rgba(0,0,0,0.1)] bg-white
+                   h-[260px] sm:h-[360px] md:h-[375px]"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
         <div className="relative w-full overflow-hidden z-10">
-          {/* highlight quét chéo */}
           <div
             style={{
               position: "absolute",
@@ -156,8 +156,7 @@ const CourseItemTHPT = () => {
               zIndex: 5,
             }}
           />
-
-          {/* ribbon THPT (màu xanh lá) */}
+          {/* ribbon nhỏ hơn trên mobile */}
           <div className="absolute top-0 right-1.5 z-10">
             <span
               className="relative inline-block 
@@ -172,56 +171,65 @@ const CourseItemTHPT = () => {
             </span>
           </div>
 
-          {/* Ảnh (bấm mở popup) */}
+          {/* Ảnh (nhỏ lại trên mobile) */}
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="h-[250px] overflow-hidden relative z-[1] hover:scale-105 transition-all duration-500"
+            className="card-img w-full overflow-hidden relative z-[1] transition-all duration-500 hover:scale-105
+                       h-[160px] sm:h-[220px] md:h-[250px]"
           >
             <img
               src="/ly.png"
-              alt="Toán THPT"
-              className="w-[85%] mx-auto p-2 object-cover"
+              alt="Toán THCS"
+              className="w-[85%] mx-auto object-cover p-1"
             />
           </button>
 
-          {/* actions nổi khi hover */}
-          <div className="absolute bottom-[-50px] left-[30%] z-10 flex items-center px-2 py-2 bg-white rounded-md shadow-md transition-all duration-500 group-hover:bottom-[14px]">
+          {/* nút Chi tiết – canh giữa, nhỏ hơn trên mobile */}
+          <div
+            className="absolute bottom-[-48px] left-1/2 -translate-x-1/2 z-10 flex items-center px-2 py-1.5 sm:px-2 sm:py-2
+                          bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px]"
+          >
             <button
               onClick={() => setOpen(true)}
-              className="inline-flex items-center justify-center"
+              className="inline-flex items-center justify-center w-[36px] sm:w-[45px]"
               aria-label="Xem chi tiết"
             >
-              <FaRegEye className="text-[26px] text-black hover:text-red-600" />
-              <span className="font-semibold ml-1">Chi tiết</span>
+              <FaRegEye className="text-[20px] sm:text-[26px] text-white" />
             </button>
+            <span className="font-semibold ml-1 text-white text-xs sm:text-sm">
+              Chi tiết
+            </span>
           </div>
         </div>
 
-        {/* info & giá */}
-        <div className="px-[10px] relative">
-          <h6 className="capitalize font-bold text-[22px] text-black flex justify-center m-auto">
+        {/* info & giá (font nhỏ hơn trên mobile) */}
+        <div className="info px-2.5 sm:px-[10px] z-10 relative">
+          <h6 className="title capitalize font-bold text-[16px] sm:text-[22px] text-black text-center">
             Toán
           </h6>
-          <div className="flex items-center gap-3 justify-center">
-            <span className="font-bold text-[17px] text-green-700">
+          <div className="flex items-center gap-2 sm:gap-3 justify-center">
+            <span className="price font-bold text-[14px] sm:text-[17px] text-green-700">
               399,000₫
             </span>
-            <span className="line-through text-gray-400">499,000₫</span>
+            <span className="old-price line-through text-gray-400 text-xs sm:text-base">
+              499,000₫
+            </span>
           </div>
           <div className="flex w-full items-center">
-            <div className="w-[20%] flex justify-end mt-2">
+            <div className="w-[24%] sm:w-[20%] flex justify-end mt-1.5 sm:mt-2">
               <Link to={ZALO_LINK} target="_blank" rel="noopener noreferrer">
                 <img
                   src={logo}
-                  className="w-[60%] p-1 border border-gray-400 rounded-full"
+                  className="w-[60%] sm:w-[70%] p-1 border border-gray-300 sm:border-gray-400 rounded-full"
                   alt="Zalo"
                 />
               </Link>
             </div>
-            <div className="w-[80%]">
+            <div className="w-[76%] sm:w-[80%]">
               <span
-                className="flex items-center ml-12 justify-center mt-2 px-[12px] py-[4px] rounded-full text-[14px] w-fit text-white font-semibold shadow-md"
+                className="promo-pill flex items-center ml-3 sm:ml-[54px] justify-center mt-1.5 sm:mt-2 px-2.5 sm:px-[12px] py-[3px] sm:py-[4px]
+                           rounded-full text-[11px] sm:text-[14px] w-fit text-white font-semibold shadow-md"
                 style={{
                   backgroundImage:
                     "linear-gradient(to right, #001F5D, #022f8a, #043cac, #0972DA)",
