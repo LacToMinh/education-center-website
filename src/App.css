@@ -27,7 +27,8 @@ body {
   .productsSlider .swiper{ --swiper-navigation-size:16px; }
   .productsSlider .swiper-button-next,
   .productsSlider .swiper-button-prev{
-    width:24px; height:24px; top:42%;
+    width:24px; height:24px; top:42%; right:-1% !important; z-index: 10;
+    font-weight: bold !important;
   }
 
   /* Card THCS nén lại */
@@ -60,12 +61,16 @@ body {
   /* Kích thước/nền/định vị nút */
   .productsSlider .swiper-button-next,
   .productsSlider .swiper-button-prev {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     border-radius: 9999px;
-    background: rgba(0,0,0,0.06);   /* nền mờ cho dễ bấm, vẫn nhẹ nhàng */
-    color: #111111;                 /* đề phòng theme variable không ăn */
+    background: #001F5D;   /* nền mờ cho dễ bấm, vẫn nhẹ nhàng */
+    color: #ffe70f;                 /* đề phòng theme variable không ăn */
     top: 45%;
+    font-weight: bolder !important;
+    right:-1px !important;
+    cursor: pointer;
+    animation: arrow-bounce 1.4s ease-in-out infinite;
   }
 
   /* Font-size icon – phòng trường hợp biến không áp dụng */
@@ -84,3 +89,7 @@ body {
   }
 }
 
+@keyframes arrow-bounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-5px); } /* dịch sang phải 4px */
+}

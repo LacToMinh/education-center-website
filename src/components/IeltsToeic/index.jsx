@@ -84,7 +84,7 @@ export default function IeltsToeic({
       variants={variants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.4 }}
+      viewport={{ once: true, amount: 0.3 }}
       className="relative group h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden will-change-transform rounded-2xl"
       onMouseLeave={() => setOpenIdx(null)}
     >
@@ -208,7 +208,7 @@ export default function IeltsToeic({
           variants={centerBlock}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.7 }}
+          viewport={{ once: true, amount: 0.5 }}
           className="flex flex-col items-center justify-center text-center bg-white px-4 py-6"
         >
           <motion.img

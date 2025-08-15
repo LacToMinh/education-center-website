@@ -63,7 +63,7 @@ const Header = () => {
       {/* Top strip */}
       <div className="top-strip w-full bg-[#FBCD02] py-[10px] overflow-hidden">
         <div
-          className="inline-block w-max animate-[marquee_12s_linear_infinite]
+          className="inline-block w-max animate-[marquee_16s_linear_infinite]
                       sm:animate-[marquee_16s_linear_infinite]
                       md:animate-[marquee_14s_linear_infinite]
                       lg:animate-[marquee_18s_linear_infinite]
@@ -79,7 +79,7 @@ const Header = () => {
       {/* Nav bar */}
       <div className="sticky top-0 z-40">
         <div
-          className={`md:container lg:container w-full mx-auto flex items-center justify-between px-3 lg:px-0 rounded-b-xl transition-[box-shadow,background] duration-300
+          className={`md:container lg:container w-full mx-auto flex items-center justify-between px-2 md:px-3 lg:px-0 rounded-b-xl transition-[box-shadow,background] duration-300
           ${glass.shadow ? "shadow-md" : "shadow-sm"} ring-1 ring-white/30`}
           style={{
             backgroundColor: `rgba(255,255,255, ${glass.alpha})`,
@@ -88,18 +88,18 @@ const Header = () => {
           }}
         >
           {/* Left: Logo */}
-          <div className="w-auto py-3 pl-1">
+          <div className="w-auto py-3 pl-0 sm:pl-1 md:pl-1 lg:pl-1">
             <Link to={"/"} aria-label="Trang chủ">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1 sm:gap-2 md:gap-3 lg:gap-3">
                 <img
                   src={logo}
-                  className="w-[40px] h-[40px] object-contain"
+                  className="w-[35px] h-[35px] sm:w-[40px] sm:h-[40px] md:w-[40px] md:h-[40px] lg:w-[40px] lg:h-[40px] object-contain"
                   alt="Logo"
                 />
                 <img
                   src={text_dayhocvaluyenthi}
                   alt="dayhocvaluyenthi.com"
-                  className="w-[clamp(95px,30vw,200px)]"
+                  className="w-[clamp(135px,30vw,200px)]"
                 />
               </div>
             </Link>
@@ -176,7 +176,7 @@ const Header = () => {
           </div>
 
           {/* Right: Mobile/Tablet controls (<lg) */}
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex items-center gap-2 md:gap-3 lg:gap-3 lg:hidden">
             <Link
               to="https://zalo.me/0369984849"
               target="_blank"
@@ -188,8 +188,8 @@ const Header = () => {
                     bg-[#001F5D] rounded-[10px] leading-none whitespace-nowrap 
                     transition-transform group-hover:scale-[1.02]"
               >
-                <FiPhoneCall className="text-[#fcec16] text-[18px]" />
-                <span className="text-[15px] text-white font-medium">
+                <FiPhoneCall className="text-[#fcec16] text-[16px] md:text-[18px] lg:text-[18px]" />
+                <span className="text-[13px] md:text-[15px] lg:text-[15px] text-white font-medium">
                   Đăng ký
                 </span>
               </div>
@@ -224,8 +224,8 @@ const Header = () => {
           )}px)`,
         }}
       >
-        <div className="container px-4 py-3">
-          <ul className="flex flex-col gap-2">
+        <div className="px-4 py-3">
+          <ul className="container flex flex-col gap-2">
             {menu.map((item) => (
               <li key={`m-${item.id || item.path}`}>
                 {item.path ? (
@@ -248,21 +248,21 @@ const Header = () => {
           </ul>
 
           {/* Actions gom vào cuối menu */}
-          <div className="mt-3 grid grid-cols-3 gap-2">
-            <button className="flex items-center justify-center gap-2 rounded-xl px-3 py-2 ring-1 ring-slate-300 text-slate-800">
-              <IoSearch className="text-[20px]" />{" "}
-              <span className="text-sm">Tìm kiếm</span>
+          <div className="!w-full mt-3 grid grid-cols-3 gap-3">
+            <button className="flex items-center justify-center gap-1 rounded-xl px-2 py-2 ring-1 ring-slate-300 text-slate-800">
+              <IoSearch className="text-[18px]" />{" "}
+              <span className="text-[12px] font-semibold">Tìm kiếm</span>
             </button>
             <Link to="/branches" className="contents">
-              <button className="flex items-center justify-center gap-2 rounded-xl px-3 py-2 ring-1 ring-slate-300 text-slate-800 w-full">
-                <GrMapLocation className="text-[20px]" />{" "}
-                <span className="text-sm">Chi nhánh</span>
+              <button className="flex items-center justify-center gap-1 rounded-xl px-2 py-2 ring-1 ring-slate-300 text-slate-800 w-full">
+                <GrMapLocation className="text-[18px]" />{" "}
+                <span className="text-[12px] font-semibold">Chi nhánh</span>
               </button>
             </Link>
             <Link to="/store" className="contents">
-              <button className="flex items-center justify-center gap-2 rounded-xl px-3 py-2 ring-1 ring-slate-300 text-slate-800 w-full">
-                <IoCartOutline className="text-[20px]" />{" "}
-                <span className="text-sm">Giỏ hàng</span>
+              <button className="flex items-center justify-center gap-1 rounded-xl px-2 py-2 ring-1 ring-slate-300 text-slate-800 w-full">
+                <IoCartOutline className="text-[18px]" />{" "}
+                <span className="text-[12px] font-semibold">Cửa hàng</span>
               </button>
             </Link>
           </div>

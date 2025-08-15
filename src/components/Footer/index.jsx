@@ -1,14 +1,9 @@
 // Footer.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  FiFacebook,
-  FiYoutube,
-  FiInstagram,
-  FiPhone,
-  FiMail,
-  FiMapPin,
-} from "react-icons/fi";
+import { FiFacebook, FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+import { FaTiktok } from "react-icons/fa6";
+// import zaloIcon from "/zalo-icon.png";
 import logo from "/logo_but_chi.png"; // bật nếu bạn có logo
 
 const Footer = () => {
@@ -22,7 +17,11 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3">
-              <img src={logo} alt="dayhocvaluyenthi" className="h-10 w-10 object-contain" />
+              <img
+                src={logo}
+                alt="dayhocvaluyenthi"
+                className="h-10 w-10 object-contain"
+              />
               <span className="text-xl font-extrabold tracking-wide">
                 dayhocvaluyenthi
               </span>
@@ -32,26 +31,37 @@ const Footer = () => {
               kiến thức cho học sinh.
             </p>
             <div className="mt-4 flex items-center gap-3">
+              {/* Facebook */}
               <a
                 aria-label="Facebook"
-                href="#"
+                href="https://www.facebook.com/trungtamdayhocvaluyenthi"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
               >
-                <FiFacebook />
+                <FiFacebook size={20} />
               </a>
+
+              {/* TikTok */}
               <a
-                aria-label="YouTube"
-                href="#"
+                aria-label="TikTok"
+                href="https://www.tiktok.com/@dayhocvaluyenthi"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
               >
-                <FiYoutube />
+                <FaTiktok size={20} />
               </a>
+
+              {/* Zalo */}
               <a
-                aria-label="Instagram"
-                href="#"
+                aria-label="Zalo"
+                href="https://zalo.me/0369984849"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
               >
-                <FiInstagram />
+                <img src="/zalo_icon.png" alt="Zalo" className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -87,15 +97,36 @@ const Footer = () => {
           <div className="">
             <h4 className="text-lg font-bold">Liên hệ</h4>
             <ul className="mt-3 space-y-2 text-slate-200/90">
-              <li className="flex items-start gap-2">
-                <FiMapPin className="mt-1" /> 123 Nguyễn Văn Cừ, TP.HCM
-              </li>
-              <li className="flex items-start gap-2">
+              <a
+                href="https://www.google.com/maps/place/TU%E1%BB%86+NAM+GROUP+BUILDING/@11.035036,106.640151,15z/data=!4m6!3m5!1s0x3174d100552d68ed:0x982e0b653a3025c0!8m2!3d11.035036!4d106.640151!16s%2Fg%2F11v_9wgd9v?hl=vi"
+                target="_blank"
+                className="flex items-start gap-2 hover:text-[#FBCD02]"
+              >
+                <FiMapPin className="mt-1" /> 69/3 ĐT741, Tân Định, Bến Cát,
+                Bình Dương
+              </a>
+              <a
+                href="https://www.google.com/maps/place/Trung+t%C3%A2m+d%E1%BA%A1y+h%E1%BB%8Dc+v%C3%A0+luy%E1%BB%87n+thi+TNedu/@11.0699205,106.6234703,17z/data=!4m16!1m9!3m8!1s0x3174cd7497ee1151:0x8d2ba4900f2340ea!2zVHJ1bmcgdMOibSBk4bqheSBo4buNYyB2w6AgbHV54buHbiB0aGkgVE5lZHU!8m2!3d11.0699152!4d106.6260452!9m1!1b1!16s%2Fg%2F11rj_896b5!3m5!1s0x3174cd7497ee1151:0x8d2ba4900f2340ea!8m2!3d11.0699152!4d106.6260452!16s%2Fg%2F11rj_896b5?authuser=2&entry=ttu"
+                target="_blank"
+                className="flex items-start gap-2 hover:text-[#FBCD02]"
+              >
+                <FiMapPin className="mt-1" /> B1-01 Đ. N1, khu đô thị Thịnh Gia,
+                Bến Cát, Bình Dương
+              </a>
+              <a
+                href="https://zalo.me/0369984849"
+                target="_blank"
+                className="flex items-start gap-2 hover:text-[#FBCD02]"
+              >
                 <FiPhone className="mt-1" /> 0369 984 849
-              </li>
-              <li className="flex items-start gap-2">
-                <FiMail className="mt-1" /> support@dayhocvaluyenthi.com
-              </li>
+              </a>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=tuenambinhduong@gmail.com"
+                target="_blank"
+                className="flex items-start gap-2 hover:text-[#FBCD02]"
+              >
+                <FiMail className="mt-1" /> tuenambinhduong@gmail.com
+              </a>
             </ul>
           </div>
 
@@ -106,21 +137,32 @@ const Footer = () => {
               Mẹo học & lịch khai giảng mới mỗi tháng.
             </p>
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("Đã đăng ký nhận tin!");
-              }}
+              onSubmit={(e) => e.preventDefault()}
               className="mt-4 flex items-center gap-2"
             >
               <input
-                type="email"
-                required
+                id="email"
+                // type="email"
                 placeholder="Email của bạn"
-                className="flex-1 rounded-xl bg-white/10 placeholder:text-slate-200/60 text-white px-4 py-3 outline-none focus:ring-2 focus:ring-[#FBCD02]"
+                className="w-[60%] rounded-xl bg-white/10 placeholder:text-slate-200/60 text-white px-4 py-3 outline-none focus:ring-2 focus:ring-[#FBCD02]"
               />
-              <button className="rounded-xl bg-[#FBCD02] text-[#001F5D] font-semibold px-2 py-3 hover:brightness-95 transition">
-                Đăng ký
-              </button>
+              <a
+                href="https://zalo.me/0369984849"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  const email = document.getElementById("email")?.value || "";
+                  // chèn nội dung soạn sẵn
+                  const url = `https://zalo.me/0369984849?message=${encodeURIComponent(
+                    `Đăng ký nhận tin: ${email}`
+                  )}`;
+                  e.currentTarget.href = url;
+                }}
+              >
+                <span className="rounded-xl bg-[#FBCD02] text-[#001F5D] font-semibold px-3 py-3 hover:brightness-95 transition">
+                  <span className="font-bold">Đăng ký</span>
+                </span>
+              </a>
             </form>
           </div>
         </div>
@@ -128,9 +170,13 @@ const Footer = () => {
 
       {/* Bottom strip */}
       <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p className="text-sm text-[#FBCD02]">
+        <a
+          href="https://www.facebook.com/minh.lac.9406/"
+          target="_blank"
+          className="text-sm text-[#FBCD02] hover:text-white"
+        >
           © {year} Lạc Tô Minh. All rights reserved.
-        </p>
+        </a>
         <div className="text-xs flex items-center gap-4 text-slate-200/70">
           <Link to="#" className="hover:text-white">
             Điều khoản

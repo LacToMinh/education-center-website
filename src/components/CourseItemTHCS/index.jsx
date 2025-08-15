@@ -190,10 +190,10 @@ export default function CourseItemTHCS() {
           {/* nút Chi tiết – canh giữa, nhỏ hơn trên mobile */}
           <div
             className="hidden lg:flex absolute bottom-[-52px] left-1/2 -translate-x-1/2 z-10 items-center px-1 py-1 sm:px-2 sm:py-2
-                    bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px]"
+                    bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px] cursor-pointer"
+            onClick={() => setOpen(true)}
           >
             <button
-              onClick={() => setOpen(true)}
               className="inline-flex items-center justify-center w-[30px] sm:w-[45px]"
               aria-label="Xem chi tiết"
             >

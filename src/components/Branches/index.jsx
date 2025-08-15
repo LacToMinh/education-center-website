@@ -14,7 +14,7 @@ export default function BranchesPro() {
   const branches = [
     {
       name: "Chi nhánh Sở Sao",
-      address: "Sở Sao, Thủ Dầu Một, Bình Dương",
+      address: "69/3 ĐT741, Tân Định, Bến Cát, Bình Dương",
       phone: "0369984849",
       hours: "T2–CN · 08:00–21:00",
       mapUrl:
@@ -95,7 +95,11 @@ export default function BranchesPro() {
                     label="Địa chỉ"
                     value={b.address || "Đang cập nhật"}
                   />
-                  <InfoRow icon={<FiClock />} label="Giờ mở cửa" value={b.hours} />
+                  <InfoRow
+                    icon={<FiClock />}
+                    label="Giờ mở cửa"
+                    value={b.hours}
+                  />
                   <InfoRow
                     icon={<FiPhone />}
                     label="Điện thoại"
@@ -110,30 +114,35 @@ export default function BranchesPro() {
                   />
                 </dl>
 
-                <div className="mt-5 flex flex-wrap gap-3">
-                  {b.mapUrl && (
-                    <a
-                      href={b.mapUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl bg-[#001F5D] text-white px-4 py-2 text-sm font-semibold hover:opacity-95"
-                    >
-                      <FiExternalLink />
-                      Chỉ đường
-                    </a>
-                  )}
-                  {b.embed && (
-                    <button
-                      onClick={() => setOpenMapIdx(idx)}
-                      className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                    >
-                      <FiMap />
-                      Xem bản đồ
-                    </button>
-                  )}
+                <div className="mt-5 flex flex-col gap-3">
+                  {/* Hàng 1: Chỉ đường + Xem bản đồ */}
+                  <div className="flex sm:flex-col sm:w-fit gap-3 justify-between sm:justify-normal">
+                    {b.mapUrl && (
+                      <a
+                        href={b.mapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-xl bg-[#001F5D] text-white px-[12px] sm:px-4 py-2 text-sm font-semibold hover:opacity-95"
+                      >
+                        <FiExternalLink />
+                        <span className="text-[13px] sm:text[14px]">Chỉ đường</span>
+                      </a>
+                    )}
+                    {b.embed && (
+                      <button
+                        onClick={() => setOpenMapIdx(idx)}
+                        className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-[12px] sm:px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                      >
+                        <FiMap />
+                        <span className="text-[13px] sm:text[14px]">Xem bản đồ</span>
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Hàng 2: Gọi ngay */}
                   <a
                     href={`tel:${b.phone}`}
-                    className="inline-flex items-center gap-2 rounded-xl border border-emerald-300 px-4 py-2 text-sm font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-300 px-4 py-2 text-sm font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100"
                   >
                     <FiPhone />
                     Gọi ngay
@@ -183,16 +192,25 @@ function MapModal({ title, embedUrl, onClose }) {
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+    >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={onClose} />
+      <div
+        className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+        onClick={onClose}
+      />
       {/* Card */}
       <div
         className="relative z-10 w-[92%] max-w-3xl rounded-2xl bg-white shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-4 py-3 border-b">
-          <h4 className="text-[15px] font-semibold text-slate-800">Bản đồ – {title}</h4>
+          <h4 className="text-[15px] font-semibold text-slate-800">
+            Bản đồ – {title}
+          </h4>
           <button
             className="p-2 rounded-lg hover:bg-slate-100"
             onClick={onClose}
@@ -226,9 +244,16 @@ function ImageModal({ imageUrl, onClose }) {
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+    >
       {/* Backdrop (click to close) */}
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
+      <div
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        onClick={onClose}
+      />
       {/* Content */}
       <div
         className="relative z-10 max-w-5xl w-[92%] flex items-center justify-center"

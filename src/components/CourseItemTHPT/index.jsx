@@ -159,13 +159,11 @@ const CourseItemTHPT = () => {
           {/* ribbon nhỏ hơn trên mobile */}
           <div className="absolute top-0 right-1.5 z-10">
             <span
-              className="relative inline-block 
-                bg-gradient-to-r from-[#016828] via-[#01963a] to-[#016828]
-                text-white text-[13px] font-bold uppercase tracking-wide px-3 py-1 rounded-l-sm shadow
-                after:content-[''] after:absolute after:-right-2 after:top-0
-                after:border-t-[20px] after:border-b-[20px] after:border-l-[8px]
-                after:border-t-transparent after:border-b-transparent
-                after:border-l-[#016828]"
+              className="relative inline-block bg-gradient-to-r from-[#016828] via-[#01963a] to-[#016828] text-white
+                      text-[11px] sm:text-[13px] font-bold uppercase tracking-wide px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-l-sm shadow
+                      after:content-[''] after:absolute after:-right-2 after:top-0 after:border-t-[18px] sm:after:border-t-[20px]
+                      after:border-b-[18px] sm:after:border-b-[20px] after:border-l-[8px] after:border-t-transparent
+                      after:border-b-transparent after:border-l-[#016828]"
             >
               THPT
             </span>
@@ -188,10 +186,10 @@ const CourseItemTHPT = () => {
           {/* nút Chi tiết – canh giữa, nhỏ hơn trên mobile */}
           <div
             className="hidden lg:flex absolute bottom-[-48px] left-1/2 -translate-x-1/2 z-10 items-center px-2 py-1.5 sm:px-2 sm:py-2
-                          bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px]"
+                          bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px] cursor-pointer"
+            onClick={() => setOpen(true)}
           >
             <button
-              onClick={() => setOpen(true)}
               className="inline-flex items-center justify-center w-[36px] sm:w-[45px]"
               aria-label="Xem chi tiết"
             >

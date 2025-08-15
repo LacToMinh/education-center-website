@@ -50,14 +50,14 @@ export default function StatsStrip() {
   const items = [
     {
       title: "KHÓA HỌC",
-      desc: "Hơn 120 khóa học đa dạng, phù hợp với mọi trình độ và nhu cầu học tập.",
+      desc: "Hơn 120 khóa học đa dạng, phù hợp với mọi trình độ, nhu cầu học tập.",
       end: 120,
       suffix: "+",
       icon: <FcAbout />,
     },
     {
       title: "TÀI LIỆU",
-      desc: "Hơn 5.000 tài liệu chất lượng, bám sát chương trình, luôn được cập nhật.",
+      desc: "Hơn 5.000 tài liệu chất lượng, bám sát chương trình, cập nhật liên tục",
       end: 5000,
       suffix: "+",
       icon: "📚",
