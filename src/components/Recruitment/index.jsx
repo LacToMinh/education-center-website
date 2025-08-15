@@ -166,8 +166,8 @@ export default function RecruitmentSection() {
         <h2 className="text-3xl md:text-4xl font-extrabold text-[#001F5D]">
           Tuyển dụng
         </h2>
-        <p className="text-slate-600 mt-1">
-          Cùng chúng tôi xây dựng môi trường học tập vui – hiệu quả.
+        <p className="text-slate-600 mt-1 text-center">
+          Cùng chúng tôi xây dựng môi trường học tập vui vẻ – hiệu quả.
         </p>
       </header>
 

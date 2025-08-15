@@ -208,7 +208,7 @@ export default function IeltsToeic({
           variants={centerBlock}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.9 }}
+          viewport={{ once: true, amount: 0.7 }}
           className="flex flex-col items-center justify-center text-center bg-white px-4 py-6"
         >
           <motion.img

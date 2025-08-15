@@ -34,8 +34,8 @@ const getLastNameInitial = (fullName) => {
 
 export default function CustomerReviews() {
   return (
-    <div className="w-full py-24 bg-gray-50">
-      <h2 className="text-center text-4xl font-bold mb-16 text-slate-800">
+    <div className="w-full py-16 lg:py-24 bg-gray-50">
+      <h2 className="text-center text-[26px] md:text-3xl lg:text-4xl font-bold mb-10 md:mb-12 lg:mb-16 text-slate-800">
         Đánh giá của khách hàng
       </h2>
       <div className="max-w-6xl mx-auto px-4">

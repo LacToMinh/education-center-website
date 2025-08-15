@@ -137,7 +137,7 @@ export default function CourseItemTHCS() {
       {/* Card khóa học */}
       <div
         className="thcs-card group relative overflow-hidden w-full rounded-lg my-4 shadow-[0_1px_8px_rgba(0,0,0,0.1)] bg-white
-             h-[260px] sm:h-[360px] md:h-[375px]"
+             h-[245px] sm:h-[360px] md:h-[375px]"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
@@ -183,30 +183,30 @@ export default function CourseItemTHCS() {
             <img
               src="/ly.png"
               alt="Toán THCS"
-              className="w-full h-full object-cover p-2"
+              className="pt-3 w-full h-full object-cover p-2"
             />
           </button>
 
           {/* nút Chi tiết – canh giữa, nhỏ hơn trên mobile */}
           <div
-            className="absolute bottom-[-48px] left-1/2 -translate-x-1/2 z-10 flex items-center px-2 py-1.5 sm:px-2 sm:py-2
+            className="hidden lg:flex absolute bottom-[-52px] left-1/2 -translate-x-1/2 z-10 items-center px-1 py-1 sm:px-2 sm:py-2
                     bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px]"
           >
             <button
               onClick={() => setOpen(true)}
-              className="inline-flex items-center justify-center w-[36px] sm:w-[45px]"
+              className="inline-flex items-center justify-center w-[30px] sm:w-[45px]"
               aria-label="Xem chi tiết"
             >
-              <FaRegEye className="text-[20px] sm:text-[26px] text-white" />
+              <FaRegEye className="text-[16px] sm:text-[26px] text-white" />
             </button>
-            <span className="font-semibold ml-1 text-white text-xs sm:text-sm">
+            <span className="font-semibold ml-0 text-white text-[10px] sm:text-sm">
               Chi tiết
             </span>
           </div>
         </div>
 
         {/* info & giá (font nhỏ hơn trên mobile) */}
-        <div className="info px-2.5 sm:px-[10px] z-10 relative">
+        <div className="info px-2.5 mt-[-10px] md:mt-0 lg:mt-0 sm:px-[10px] z-10 relative">
           <h6 className="title capitalize font-bold text-[16px] sm:text-[22px] text-black text-center">
             Toán
           </h6>

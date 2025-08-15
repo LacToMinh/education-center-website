@@ -6,7 +6,7 @@ export default {
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(100%)" },
-          "100%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(-100%)" },
         },
         wiggle: {
           "0%, 100%": { transform: "rotate(-10deg)" },
@@ -14,7 +14,7 @@ export default {
         },
       },
       animation: {
-        marquee: "marquee 10s linear infinite",
+        marquee: "marquee 12s linear infinite",
         wiggle: "wiggle 0.5s ease-in infinite",
       },
     },

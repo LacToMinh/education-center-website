@@ -133,7 +133,7 @@ const CourseItemTHPT = () => {
     <>
       <div
         className="thcs-card group relative overflow-hidden w-full rounded-lg my-4 shadow-[0_1px_8px_rgba(0,0,0,0.1)] bg-white
-                   h-[260px] sm:h-[360px] md:h-[375px]"
+                   h-[235px] sm:h-[360px] md:h-[375px]"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
@@ -181,13 +181,13 @@ const CourseItemTHPT = () => {
             <img
               src="/ly.png"
               alt="Toán THCS"
-              className="w-[85%] mx-auto object-cover p-1"
+              className="pt-4 w-[90%] mx-auto object-cover p-1"
             />
           </button>
 
           {/* nút Chi tiết – canh giữa, nhỏ hơn trên mobile */}
           <div
-            className="absolute bottom-[-48px] left-1/2 -translate-x-1/2 z-10 flex items-center px-2 py-1.5 sm:px-2 sm:py-2
+            className="hidden lg:flex absolute bottom-[-48px] left-1/2 -translate-x-1/2 z-10 items-center px-2 py-1.5 sm:px-2 sm:py-2
                           bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px]"
           >
             <button
@@ -204,7 +204,7 @@ const CourseItemTHPT = () => {
         </div>
 
         {/* info & giá (font nhỏ hơn trên mobile) */}
-        <div className="info px-2.5 sm:px-[10px] z-10 relative">
+        <div className="info px-2.5 mt-[-20px] sm:px-[10px] z-10 relative">
           <h6 className="title capitalize font-bold text-[16px] sm:text-[22px] text-black text-center">
             Toán
           </h6>
