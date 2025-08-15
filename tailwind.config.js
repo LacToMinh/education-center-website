@@ -14,7 +14,7 @@ export default {
         },
       },
       animation: {
-        marquee: "marquee 22s linear infinite",
+        marquee: "marquee 10s linear infinite",
         wiggle: "wiggle 0.5s ease-in infinite",
       },
     },
