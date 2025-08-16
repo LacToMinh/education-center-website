@@ -11,6 +11,7 @@ import IeltsToeic from "../../components/IeltsToeic";
 import RecruitmentSection from "../../components/Recruitment";
 import CustomerReviews from "../../components/CustomerReviews";
 import { useLocation, useNavigate } from "react-router-dom";
+import MiniChatbot from "../../components/MiniChatbot";
 const Home = () => {
   const [value, setValue] = useState(0);
 
@@ -100,6 +101,8 @@ const Home = () => {
       <IeltsToeic />
       <RecruitmentSection />
       <CustomerReviews />
+
+      <MiniChatbot />
     </>
   );
 };

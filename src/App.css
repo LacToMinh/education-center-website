@@ -91,6 +91,21 @@ body {
 
 @keyframes arrow-bounce {
   0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(-5px); } /* dịch sang phải 4px */
+  50% { transform: translateX(-10px); } /* dịch sang phải 4px */
+}
+
+@keyframes gradientShift {
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 200% 50%; } /* dịch xa hơn */
+  100% { background-position:   0% 50%; }
+}
+
+@keyframes glassGlow {
+  0%,100% { 
+    box-shadow: 0 8px 24px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.3); 
+  }
+  50% { 
+    box-shadow: 0 14px 32px rgba(0,0,0,.35), inset 0 2px 0 rgba(255,255,255,.5); 
+  }
 }
 
