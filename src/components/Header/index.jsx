@@ -99,7 +99,7 @@ const Header = () => {
                 <img
                   src={text_dayhocvaluyenthi}
                   alt="dayhocvaluyenthi.com"
-                  className="w-[clamp(135px,30vw,200px)]"
+                  className="w-[clamp(145px,30vw,200px)]"
                 />
               </div>
             </Link>
@@ -167,7 +167,7 @@ const Header = () => {
               className="group lg:pr-2"
             >
               <div className="flex items-center gap-3 bg-[#001F5D] max-w-max p-[6px] px-4 rounded-[10px] transition-transform group-hover:scale-[1.02]">
-                <FiPhoneCall className="text-[#fcec16] text-[18px] animate-wiggle" />
+                <FiPhoneCall className="text-[#fcec16] text-[18px] animate-wiggle " />
                 <span className="text-[16px] xl:text-[18px] text-white font-medium">
                   Đăng ký
                 </span>
