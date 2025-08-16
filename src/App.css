@@ -109,3 +109,20 @@ body {
   }
 }
 
+@keyframes ringPulse {
+  0%   { transform: scale(0.9); opacity: .55; }
+  70%  { transform: scale(1.6); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes fabPop {
+  0%   { transform: scale(.6); opacity: 0; }
+  100% { transform: scale(1);  opacity: 1; }
+}
+
+@keyframes aiGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
