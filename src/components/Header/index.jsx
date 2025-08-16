@@ -167,7 +167,7 @@ const Header = () => {
               className="group lg:pr-2"
             >
               <div className="flex items-center gap-3 bg-[#001F5D] max-w-max p-[6px] px-4 rounded-[10px] transition-transform group-hover:scale-[1.02]">
-                <FiPhoneCall className="text-[#fcec16] text-[18px] animate-wiggle " />
+                <FiPhoneCall className="text-[#fcec16] text-[18px] animate-wiggle" />
                 <span className="text-[16px] xl:text-[18px] text-white font-medium">
                   Đăng ký
                 </span>
@@ -188,7 +188,7 @@ const Header = () => {
                     bg-[#001F5D] rounded-[10px] leading-none whitespace-nowrap 
                     transition-transform group-hover:scale-[1.02]"
               >
-                <FiPhoneCall className="text-[#fcec16] text-[16px] md:text-[18px] lg:text-[18px]" />
+                <FiPhoneCall className="text-[#fcec16] text-[16px] md:text-[18px] lg:text-[18px] animate-wiggle" />
                 <span className="text-[13px] md:text-[15px] lg:text-[15px] text-white font-medium">
                   Đăng ký
                 </span>
