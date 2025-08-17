@@ -8,6 +8,7 @@ import Branches from "../components/Branches";
 import ToeicDetail from "../pages/ToeicDetail";
 import IeltsDetail from "../pages/IeltsDetail";
 import StorePage from "../pages/Store";
+import SearchResults from "../pages/SearchResults";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
       { path: "branches", element: <Branches /> },
       { path: "/khoa-hoc/ielts", element: <IeltsDetail /> },
       { path: "/khoa-hoc/toeic", element: <ToeicDetail /> },
-      { path: "store", element: <StorePage /> },
+      { path: "/store", element: <StorePage /> },
+      { path: "/search", element: <SearchResults /> },
     ],
   },
 ]);

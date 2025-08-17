@@ -1,3 +1,4 @@
+// src/components/layout/Header.jsx
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
 import { IoSearch, IoCartOutline } from "react-icons/io5";
@@ -8,12 +9,25 @@ import { useEffect, useState } from "react";
 import logo from "../../assets/logo_but_chi.png";
 import text_dayhocvaluyenthi from "../../assets/text_dayhocvaluyenthi.png";
 
-const Header = () => {
+const HOT = [
+  "Ielts",
+  "Toán",
+  "combo trang nguyên",
+  "combo tinh hoa",
+  "Hóa",
+  "Lý",
+  "Tiếng Anh",
+  "Toeic",
+];
+
+export default function Header() {
   const [glass, setGlass] = useState({ alpha: 0.24, blur: 8, shadow: false });
-  const [open, setOpen] = useState(false); // mobile/tablet menu
+  const [open, setOpen] = useState(false);           // drawer mobile
+  const [openSearch, setOpenSearch] = useState(false); // overlay search
   const location = useLocation();
   const navigate = useNavigate();
 
+  // hiệu ứng glass theo scroll
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY || 0;
@@ -27,7 +41,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // đóng menu khi đổi route
+  // đổi route thì đóng drawer
   useEffect(() => setOpen(false), [location.pathname]);
 
   const scrollToId = (id) => {
@@ -50,6 +64,15 @@ const Header = () => {
     setOpen(false);
   };
 
+  // submit tìm kiếm
+  const onSearchSubmit = (e) => {
+    e.preventDefault();
+    const value = e.currentTarget.q?.value?.trim();
+    if (!value) return;
+    setOpenSearch(false);
+    navigate(`/search?q=${encodeURIComponent(value)}`);
+  };
+
   const menu = [
     { label: "THCS", id: "thcs" },
     { label: "THPT", id: "thpt" },
@@ -64,9 +87,6 @@ const Header = () => {
       <div className="top-strip w-full bg-[#FBCD02] py-[10px] overflow-hidden">
         <div
           className="inline-block w-max animate-[marquee_16s_linear_infinite]
-                      sm:animate-[marquee_16s_linear_infinite]
-                      md:animate-[marquee_14s_linear_infinite]
-                      lg:animate-[marquee_18s_linear_infinite]
                       whitespace-nowrap text-[#001F5D] text-[17px] font-semibold"
         >
           <span className="mx-14">⚡ Đăng ký combo để nhận ưu đãi</span>
@@ -76,7 +96,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Nav bar */}
+      {/* Nav bar glass */}
       <div className="sticky top-0 z-40">
         <div
           className={`md:container lg:container w-full mx-auto flex items-center justify-between px-2 md:px-3 lg:px-0 rounded-b-xl transition-[box-shadow,background] duration-300
@@ -87,7 +107,7 @@ const Header = () => {
             WebkitBackdropFilter: `saturate(160%) blur(${glass.blur}px)`,
           }}
         >
-          {/* Left: Logo */}
+          {/* Logo */}
           <div className="w-auto py-3 pl-0 sm:pl-1 md:pl-1 lg:pl-1">
             <Link to={"/"} aria-label="Trang chủ">
               <div className="flex items-center gap-1 sm:gap-2 md:gap-3 lg:gap-3">
@@ -105,7 +125,7 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Center: Desktop menu (>=lg) */}
+          {/* Menu desktop */}
           <nav className="hidden lg:block">
             <ul className="flex items-center justify-center gap-6">
               {menu.map((item) => (
@@ -130,12 +150,12 @@ const Header = () => {
             </ul>
           </nav>
 
-          {/* Right: Actions + Đăng ký (desktop) */}
+          {/* Actions desktop */}
           <div className="hidden lg:flex items-center gap-6">
             <ul className="flex items-center gap-5 text-slate-800">
               <li>
                 <Tooltip title="tìm kiếm" placement="top">
-                  <button aria-label="search">
+                  <button aria-label="search" onClick={() => setOpenSearch(true)}>
                     <IoSearch className="text-[24px]" />
                   </button>
                 </Tooltip>
@@ -175,8 +195,16 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Right: Mobile/Tablet controls (<lg) */}
+          {/* Actions mobile/tablet */}
           <div className="flex items-center gap-2 md:gap-3 lg:gap-3 lg:hidden">
+            {/* <button
+              aria-label="search"
+              onClick={() => setOpenSearch(true)}
+              className="p-2 rounded-lg ring-1 ring-slate-300/70 hover:bg-slate-50 active:scale-95 transition"
+            >
+              <IoSearch className="text-[20px]" />
+            </button> */}
+
             <Link
               to="https://zalo.me/0369984849"
               target="_blank"
@@ -247,9 +275,12 @@ const Header = () => {
             ))}
           </ul>
 
-          {/* Actions gom vào cuối menu */}
+          {/* ===== PHẦN GIỮ NGUYÊN (không đổi class) ===== */}
           <div className="!w-full mt-3 grid grid-cols-3 gap-3">
-            <button className="flex items-center justify-center gap-1 rounded-xl px-2 py-2 ring-1 ring-slate-300 text-slate-800">
+            <button
+              onClick={() => setOpenSearch(true)} // chỉ thêm handler, không đổi style
+              className="flex items-center justify-center gap-1 rounded-xl px-2 py-2 ring-1 ring-slate-300 text-slate-800"
+            >
               <IoSearch className="text-[18px]" />{" "}
               <span className="text-[12px] font-semibold">Tìm kiếm</span>
             </button>
@@ -266,10 +297,75 @@ const Header = () => {
               </button>
             </Link>
           </div>
+          {/* ===== HẾT PHẦN GIỮ NGUYÊN ===== */}
         </div>
       </div>
+
+      {/* ===== Search Overlay (liquid glass) ===== */}
+      {openSearch && (
+        <div
+          className="fixed inset-0 z-[9998] bg-black/55 backdrop-blur-xl backdrop-saturate-150"
+          onClick={() => setOpenSearch(false)}
+          aria-hidden="true"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="mx-auto mt-16 w-[min(960px,92vw)]
+                       rounded-2xl border border-white/30
+                       bg-white/55 backdrop-blur-2xl
+                       shadow-xl p-5"
+            style={{
+              WebkitBackdropFilter: "saturate(160%) blur(16px)",
+              backdropFilter: "saturate(160%) blur(16px)",
+            }}
+          >
+            {/* Input search */}
+            <form onSubmit={onSearchSubmit} className="relative">
+              <input
+                name="q"
+                autoFocus
+                placeholder="Tìm kiếm sản phẩm..."
+                className="w-full h-14 pl-4 pr-14 rounded-2xl
+                           bg-white/70 border border-slate-300/60
+                           outline-none focus:ring-2 focus:ring-[#FBCD02]
+                           placeholder:text-slate-400"
+              />
+              <button
+                type="submit"
+                className="absolute right-2 top-1/2 -translate-y-1/2
+                           h-11 w-11 rounded-xl
+                           bg-white/70 border border-slate-300/60
+                           grid place-items-center hover:shadow
+                           active:scale-95 transition"
+                aria-label="Tìm kiếm"
+              >
+                <IoSearch className="text-[22px]" />
+              </button>
+            </form>
+
+            {/* Từ khóa nổi bật */}
+            <div className="mt-6">
+              <h3 className="text-xl font-extrabold">Từ khóa nổi bật hôm nay</h3>
+              <div className="mt-3 flex flex-wrap gap-3">
+                {HOT.map((k) => (
+                  <button
+                    key={k}
+                    onClick={() => {
+                      setOpenSearch(false);
+                      navigate(`/search?q=${encodeURIComponent(k)}`);
+                    }}
+                    className="px-4 py-2 rounded-xl
+                               bg-white/70 border border-slate-300
+                               hover:bg-white transition text-slate-800"
+                  >
+                    {k}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
-};
-
-export default Header;
+}
