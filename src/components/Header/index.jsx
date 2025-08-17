@@ -22,7 +22,7 @@ const HOT = [
 
 export default function Header() {
   const [glass, setGlass] = useState({ alpha: 0.24, blur: 8, shadow: false });
-  const [open, setOpen] = useState(false);           // drawer mobile
+  const [open, setOpen] = useState(false); // drawer mobile
   const [openSearch, setOpenSearch] = useState(false); // overlay search
   const location = useLocation();
   const navigate = useNavigate();
@@ -155,7 +155,10 @@ export default function Header() {
             <ul className="flex items-center gap-5 text-slate-800">
               <li>
                 <Tooltip title="tìm kiếm" placement="top">
-                  <button aria-label="search" onClick={() => setOpenSearch(true)}>
+                  <button
+                    aria-label="search"
+                    onClick={() => setOpenSearch(true)}
+                  >
                     <IoSearch className="text-[24px]" />
                   </button>
                 </Tooltip>
@@ -278,7 +281,10 @@ export default function Header() {
           {/* ===== PHẦN GIỮ NGUYÊN (không đổi class) ===== */}
           <div className="!w-full mt-3 grid grid-cols-3 gap-3">
             <button
-              onClick={() => setOpenSearch(true)} // chỉ thêm handler, không đổi style
+              onClick={() => {
+                setOpen(false);
+                setOpenSearch(true);
+              }} // chỉ thêm handler, không đổi style
               className="flex items-center justify-center gap-1 rounded-xl px-2 py-2 ring-1 ring-slate-300 text-slate-800"
             >
               <IoSearch className="text-[18px]" />{" "}
@@ -345,7 +351,9 @@ export default function Header() {
 
             {/* Từ khóa nổi bật */}
             <div className="mt-6">
-              <h3 className="text-xl font-extrabold">Từ khóa nổi bật hôm nay</h3>
+              <h3 className="text-xl font-extrabold">
+                Từ khóa nổi bật hôm nay
+              </h3>
               <div className="mt-3 flex flex-wrap gap-3">
                 {HOT.map((k) => (
                   <button
