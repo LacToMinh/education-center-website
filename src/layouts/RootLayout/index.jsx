@@ -6,10 +6,10 @@ import ScrollToTop from "../../utils/ScrollToTop";
 
 const RootLayout = () => {
   return (
-    <div className="m-0 p-0">
+    <div className="m-0 p-0 flex flex-col min-h-screen">
       <ScrollToTop />
       <Header />
-      <main>
+      <main className="flex-grow">
         <Outlet />
       </main>
       <Footer />

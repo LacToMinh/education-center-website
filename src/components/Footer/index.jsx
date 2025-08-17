@@ -1,9 +1,6 @@
-// Footer.jsx
-import React from "react";
 import { Link } from "react-router-dom";
 import { FiFacebook, FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import { FaTiktok } from "react-icons/fa6";
-// import zaloIcon from "/zalo-icon.png";
 import logo from "/logo_but_chi.png"; // bật nếu bạn có logo
 
 const Footer = () => {
