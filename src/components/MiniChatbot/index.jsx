@@ -301,7 +301,7 @@ export default function MiniChatbot({
             const tx = Math.cos(rad) * R;
             const ty = -Math.sin(rad) * R;
 
-            const delay = 120 * i;
+            const delay = 99 * i;
             const base =
               "absolute right-[-45px] bottom-[-55px] inline-flex items-center justify-center rounded-full shadow " +
               "backdrop-blur-md will-change-transform w-11 h-11 md:w-12 md:h-12";
