@@ -8,37 +8,6 @@ import { useJson } from "../../hooks/useJson";
 
 const ZALO_LINK = "https://zalo.me/0369984849";
 
-// const scheduleTHPT = [
-//   {
-//     grade: "Lớp 10",
-//     days: "Thứ 2 – 4",
-//     note: "Thứ 6 tăng cường",
-//     shift: "CA 1",
-//     time: "18:00 – 19:30",
-//   },
-//   {
-//     grade: "Lớp 10",
-//     days: "Thứ 3 – 5",
-//     note: "Ôn chuyên đề",
-//     shift: "CA 2",
-//     time: "19:30 – 21:00",
-//   },
-//   {
-//     grade: "Lớp 11",
-//     days: "Thứ 2 – 4",
-//     note: "Thực hành đề",
-//     shift: "CA 1",
-//     time: "16:30 – 18:00",
-//   },
-//   {
-//     grade: "Lớp 12",
-//     days: "Thứ 3 – 5",
-//     note: "Luyện thi TN THPT",
-//     shift: "CA 2",
-//     time: "19:30 – 21:00",
-//   },
-// ];
-
 /** Modal portal: render lên document.body để phủ toàn trang */
 function ModalPortal({ title = "TOÁN THPT", schedule = [], onClose }) {
   useEffect(() => {
@@ -179,7 +148,9 @@ const CourseItemTHPT = () => {
               onClick={() => setOpen(true)}
               disabled={loading}
               className={`card-img w-full overflow-hidden relative z-[1] transition-all duration-500 hover:scale-105
-                       h-[160px] sm:h-[220px] md:h-[250px] ${loading ? "opacity-60 cursor-not-allowed" : ""}`}
+                       h-[160px] sm:h-[220px] md:h-[250px] ${
+                         loading ? "opacity-60 cursor-not-allowed" : ""
+                       }`}
             >
               <img
                 src="/ly.png"
