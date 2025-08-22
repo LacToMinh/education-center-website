@@ -83,24 +83,23 @@ function ModalPortal({ title = "TOÁN THPT", schedule = [], onClose }) {
         <div className="px-6 pb-4 overflow-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {schedule.map((r, i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-slate-200 p-5 bg-slate-50"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-extrabold text-[#0a1b50]">
-                    {r.grade}
-                  </span>
-                  <span className="text-xs font-bold px-2 py-1 rounded bg-emerald-600 text-white">
-                    {r.shift}
-                  </span>
+              <Reveal key={i} delayMs={80 * i}>
+                <div className="rounded-2xl border border-slate-200 p-5 bg-slate-50">
+                  <div className="flex items-center justify-between">
+                    <span className="text-lg font-extrabold text-[#0a1b50]">
+                      {r.grade}
+                    </span>
+                    <span className="text-xs font-bold px-2 py-1 rounded bg-emerald-600 text-white">
+                      {r.shift}
+                    </span>
+                  </div>
+                  <div className="mt-2 text-[15px]">
+                    <div className="font-semibold">📅 {r.days}</div>
+                    <div className="text-slate-600">({r.note})</div>
+                    <div className="mt-1 font-semibold">🕒 {r.time}</div>
+                  </div>
                 </div>
-                <div className="mt-2 text-[15px]">
-                  <div className="font-semibold">📅 {r.days}</div>
-                  <div className="text-slate-600">({r.note})</div>
-                  <div className="mt-1 font-semibold">🕒 {r.time}</div>
-                </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
@@ -167,7 +166,7 @@ const CourseItemTHPT = () => {
                       after:border-b-[18px] sm:after:border-b-[20px] after:border-l-[8px] after:border-t-transparent
                       after:border-b-transparent after:border-l-[#5a0394]"
               >
-                THPT
+                Combo
               </span>
             </div>
 
