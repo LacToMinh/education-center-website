@@ -13,7 +13,7 @@ const CourseSliderCombo = (props) => {
           modules={[Navigation]}
           className="mySwiper"
           // Khoảng cách slide: nhỏ hơn trên mobile cho vừa 2 box
-          spaceBetween={10}
+          spaceBetween={30}
           breakpoints={{
             0: { slidesPerView: 2, spaceBetween: 14 }, // ✅ Mobile: 2 box / hàng
             480: { slidesPerView: 2, spaceBetween: 10 }, // Small

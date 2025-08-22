@@ -6,7 +6,7 @@ import { Autoplay, Navigation } from "swiper/modules";
 const BannerSlider = () => {
   return (
     // Chiều cao responsive + chặn tràn
-    <div className="relative w-full h-[48vh] md:h-[60vh] lg:h-[74vh] overflow-hidden mb-[30px]">
+    <div className="relative w-full h-[52vh] md:h-[62vh] lg:h-[78vh] overflow-hidden mb-[30px]">
       <Swiper
         navigation
         modules={[Navigation, Autoplay]}

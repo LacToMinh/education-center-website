@@ -15,13 +15,23 @@ body {
 .container {
   width: 85%;
   margin: auto;
+  overflow-x: hidden;
 }
+
+.productsSlider { 
+  overscroll-behavior-x: contain; /* ngăn cuộn ngang lan sang ngoài */
+}
+
+.productsSlider .swiper { 
+  touch-action: pan-y;            /* ưu tiên vuốt dọc cho trang, Swiper xử lý ngang */
+}
+
 
 /* thcs-card */
 /* <= 389px: siêu nhỏ */
 @media (max-width: 389px){
   /* 2 box/1 hàng vẫn thoáng hơn */
-  .productsSlider .swiper-slide{ width: calc(50% - 6px) !important; }
+  .productsSlider .swiper-slide{ width: calc(50% - 6px) !important; box-sizing: border-box !important; }
 
   /* Nút điều hướng nhỏ thêm chút */
   .productsSlider .swiper{ --swiper-navigation-size:16px; }
@@ -56,6 +66,7 @@ body {
   .productsSlider .swiper {
     --swiper-navigation-size: 18px;   /* size icon mũi tên */
     --swiper-theme-color: #111111;    /* màu icon (đen) */
+    box-sizing: border-box !important;
   }
 
   /* Kích thước/nền/định vị nút */
