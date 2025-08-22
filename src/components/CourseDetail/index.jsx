@@ -5,7 +5,6 @@ import {
   FiBookOpen,
   FiUsers,
   FiStar,
-  FiCheck,
   FiChevronDown,
   FiChevronRight,
 } from "react-icons/fi";
@@ -32,7 +31,7 @@ export default function CourseDetail({ cfg = {} }) {
         <img
           src={cfg.heroImage ?? "/images/hero-placeholder.jpg"}
           alt={cfg.title ?? "Khoá học"}
-          className="w-full h-[280px] md:h-[360px] object-cover"
+          className="w-full h-[280px] md:h-[360px] object-fill"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/30 to-transparent" />

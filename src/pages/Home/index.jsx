@@ -12,6 +12,7 @@ import RecruitmentSection from "../../components/Recruitment";
 import CustomerReviews from "../../components/CustomerReviews";
 import { useLocation, useNavigate } from "react-router-dom";
 import MiniChatbot from "../../components/MiniChatbot";
+import CourseSliderCombo from "../../components/CourseSliderCombo";
 const Home = () => {
   const [value, setValue] = useState(0);
 
@@ -88,6 +89,17 @@ const Home = () => {
           </div>
 
           <CourseSliderTHPT items={4} />
+        </div>
+      </section>
+
+      <section className="mt-[-40px]">
+        <div className="container">
+          <div className="flex items-center justify-between">
+            <p className="text-sm sm:text-base md:text-lg font-normal text-[#2BAE66]">
+              Khóa học combo
+            </p>
+          </div>
+          <CourseSliderCombo />
         </div>
       </section>
 
