@@ -17,6 +17,7 @@ const BannerSlider = () => {
         {[
           "/banner_ky_niem.png",
           "/co_so_vat_chat.png",
+          "/hoi_thi_ve.png",
         ].map((src, i) => (
           <SwiperSlide key={i}>
             {/* Ảnh fill khung, crop đẹp */}
