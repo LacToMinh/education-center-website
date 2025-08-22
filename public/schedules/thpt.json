@@ -1,0 +1,32 @@
+{
+  "schedule": [
+    {
+      "grade": "Lớp 10",
+      "days": "Thứ 2 – 4",
+      "note": "Thứ 6 tăng cường",
+      "shift": "CA 1",
+      "time": "18:00 – 19:30"
+    },
+    {
+      "grade": "Lớp 10",
+      "days": "Thứ 3 – 5",
+      "note": "Ôn chuyên đề",
+      "shift": "CA 2",
+      "time": "19:30 – 21:00"
+    },
+    {
+      "grade": "Lớp 11",
+      "days": "Thứ 2 – 4",
+      "note": "Thực hành đề",
+      "shift": "CA 1",
+      "time": "16:30 – 18:00"
+    },
+    {
+      "grade": "Lớp 12",
+      "days": "Thứ 3 – 5",
+      "note": "Luyện thi TN THPT",
+      "shift": "CA 2",
+      "time": "19:30 – 21:00"
+    }
+  ]
+}
