@@ -16,7 +16,7 @@ const BannerSlider = () => {
       >
         {[
           "/banner_ky_niem.png",
-          "https://dayhocvaluyenthi.com/Dayhocvaluyenthi.com/img/demoposter.jpeg",
+          "/co_so_vat_chat.png",
         ].map((src, i) => (
           <SwiperSlide key={i}>
             {/* Ảnh fill khung, crop đẹp */}
