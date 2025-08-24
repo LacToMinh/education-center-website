@@ -48,7 +48,7 @@ const Home = () => {
       <FeatureStrip />
       <StatsStrip />
 
-      <div className="container flex items-center justify-center pt-[clamp(4px,2vw,32px)]">
+      <div className="container flex items-center justify-center pt-[clamp(4px,2vw,32px)] overflow-hidden pb-2">
         <p className="text-[23px] sm:text-3xl md:text-5xl text-[#001F5D] font-extrabold mt-5 text-center">
           Các khóa học tại trung tâm
         </p>

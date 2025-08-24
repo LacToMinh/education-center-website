@@ -180,7 +180,7 @@ const CourseItemTHPT = () => {
               <img
                 src="/ly.png"
                 alt="Toán THCS"
-                className="pt-4 w-[90%] md:w-[100%] lg:w-[90%] mx-auto object-cover p-1"
+                className="pt-4 w-[90%] md:w-[100%] lg:w-[80%] mx-auto object-cover p-1"
               />
             </button>
 
@@ -203,7 +203,7 @@ const CourseItemTHPT = () => {
           </div>
 
           {/* info & giá (font nhỏ hơn trên mobile) */}
-          <div className="info px-2.5 mt-[-10px] md:mt-[-20px] lg:mt-[-10px] sm:mt-[2px] sm:px-[10px] z-10 relative">
+          <div className="info px-2.5 mt-[-10px] md:mt-[-20px] lg:mt-[0px] sm:mt-[2px] sm:px-[10px] z-10 relative">
             <h6 className="title capitalize font-bold text-[16px] sm:text-[22px] text-black text-center">
               Toán
             </h6>

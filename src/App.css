@@ -18,6 +18,7 @@ body {
   overflow-x: hidden;
 }
 
+
 .productsSlider { 
   overscroll-behavior-x: contain; /* ngăn cuộn ngang lan sang ngoài */
 }

@@ -1,24 +1,46 @@
+// src/hooks/useJson.js
 import { useEffect, useState } from "react";
-import { fetchJsonCached } from "../lib/fetchJson";
+import { fetchJsonCached, fetchJson } from "../lib/fetchJson";
 
-export function useJson(url, opts) {
+/**
+ * useJson(url, { ttl = 0, force = false, timeoutMs })
+ * - ttl (ms): 0 = giữ trong session cho tới reload; >0 = cache expire sau ttl
+ * - force: true -> bypass cache and call fetchJson directly
+ */
+export function useJson(
+  url,
+  { ttl = 0, force = false, timeoutMs = undefined } = {}
+) {
   const [data, setData] = useState(null);
-  const [loading, setL] = useState(true);
+  const [loading, setLoading] = useState(Boolean(url));
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!url) return;
+    if (!url) {
+      setData(null);
+      setLoading(false);
+      setError(null);
+      return;
+    }
+
     const ac = new AbortController();
-    setL(true);
+    setLoading(true);
     setError(null);
-    fetchJsonCached(url, { ...opts, signal: ac.signal })
-      .then(setData)
+
+    const call = () => {
+      if (force) return fetchJson(url, { timeoutMs, signal: ac.signal });
+      return fetchJsonCached(url, { timeoutMs, signal: ac.signal }, ttl);
+    };
+
+    call()
+      .then((res) => setData(res))
       .catch((e) => {
         if (e.name !== "AbortError") setError(e);
       })
-      .finally(() => setL(false));
+      .finally(() => setLoading(false));
+
     return () => ac.abort();
-  }, [url]);
+  }, [url, ttl, force, timeoutMs]);
 
   return { data, loading, error };
 }

@@ -1,0 +1,41 @@
+{
+  "lastUpdated": "2025-08-23",
+  "dataTHPT": [
+    {
+      "id": "toan",
+      "title": "Toán",
+      "grade": "Khối 10-12",
+      "shift": "Ca tối",
+      "days": "Thứ 2, Thứ 4, Thứ 6",
+      "time": "19:00 - 21:00",
+      "note": "Luyện kỹ năng giải nhanh, hệ thống đề theo cấu trúc mới"
+    },
+    {
+      "id": "ly",
+      "title": "Lý",
+      "grade": "Khối 10-12",
+      "shift": "Ca chiều",
+      "days": "Thứ 3, Thứ 5",
+      "time": "17:30 - 19:30",
+      "note": "Giải thích sâu lý thuyết, thực hành bài tập chọn lọc"
+    },
+    {
+      "id": "hoa",
+      "title": "Hóa",
+      "grade": "Khối 10-12",
+      "shift": "Ca tối",
+      "days": "Thứ 2, Thứ 4",
+      "time": "18:30 - 20:30",
+      "note": "Tập trung phản ứng hữu cơ & bài tập định lượng"
+    },
+    {
+      "id": "van",
+      "title": "Văn",
+      "grade": "Khối 10-12",
+      "shift": "Ca sáng",
+      "days": "Thứ 7, Chủ Nhật",
+      "time": "09:00 - 11:00",
+      "note": "Luyện nghị luận & phương pháp đoạn văn mẫu"
+    }
+  ]
+}
