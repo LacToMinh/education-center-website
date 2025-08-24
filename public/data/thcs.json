@@ -1,6 +1,13 @@
 {
   "lastUpdated": "2025-08-23",
-  "dataTHPT": [
+  "dataTHCS": [
+    {
+      "id": "combo",
+      "title": "Toán - Lý - Anh",
+      "price": "750,000",
+      "oldPrice": "850,000",
+      "image": "/"
+    },
     {
       "id": "toan",
       "title": "Toán",
@@ -9,25 +16,25 @@
       "image": "/toan.png"
     },
     {
-      "id": "ly",
-      "title": "Lý",
-      "price": "750,000",
-      "oldPrice": "850,000",
-      "image": "/ly.png"
-    },
-    {
-      "id": "hoa",
-      "title": "Hóa",
-      "price": "750,000",
-      "oldPrice": "850,000",
-      "image": "/hoa.png"
-    },
-    {
       "id": "van",
       "title": "Văn",
       "price": "750,000",
       "oldPrice": "850,000",
       "image": "/van.png"
+    },
+    {
+      "id": "anh",
+      "title": "Anh",
+      "price": "750,000",
+      "oldPrice": "850,000",
+      "image": "/anh.png"
+    },
+    {
+      "id": "combo",
+      "title": "Hóa",
+      "price": "750,000",
+      "oldPrice": "850,000",
+      "image": "/hoa.png"
     }
   ]
 }

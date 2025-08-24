@@ -7,123 +7,92 @@ import Reveal from "../Reveal";
 
 const ZALO_LINK = "https://zalo.me/0369984849";
 
-const scheduleTHPT = [
-  {
-    grade: "Lớp 10",
-    days: "Thứ 2 – 4",
-    note: "Thứ 6 tăng cường",
-    shift: "CA 1",
-    time: "18:00 – 19:30",
-  },
-  {
-    grade: "Lớp 10",
-    days: "Thứ 3 – 5",
-    note: "Ôn chuyên đề",
-    shift: "CA 2",
-    time: "19:30 – 21:00",
-  },
-  {
-    grade: "Lớp 11",
-    days: "Thứ 2 – 4",
-    note: "Thực hành đề",
-    shift: "CA 1",
-    time: "16:30 – 18:00",
-  },
-  {
-    grade: "Lớp 12",
-    days: "Thứ 3 – 5",
-    note: "Luyện thi TN THPT",
-    shift: "CA 2",
-    time: "19:30 – 21:00",
-  },
-];
-
 /** Modal portal: render lên document.body để phủ toàn trang */
-function ModalPortal({ title = "TOÁN THPT", schedule = [], onClose }) {
-  useEffect(() => {
-    document.body.classList.add("overflow-hidden");
-    const onKey = (e) => e.key === "Escape" && onClose?.();
-    window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.classList.remove("overflow-hidden");
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [onClose]);
+// function ModalPortal({ title = "TOÁN THPT", schedule = [], onClose }) {
+//   useEffect(() => {
+//     document.body.classList.add("overflow-hidden");
+//     const onKey = (e) => e.key === "Escape" && onClose?.();
+//     window.addEventListener("keydown", onKey);
+//     return () => {
+//       document.body.classList.remove("overflow-hidden");
+//       window.removeEventListener("keydown", onKey);
+//     };
+//   }, [onClose]);
 
-  return ReactDOM.createPortal(
-    <div
-      className="fixed inset-0 z-[9999] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4"
-      onClick={onClose}
-    >
-      <div
-        className="relative w-[92vw] max-w-[980px] max-h-[86vh] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* nút đóng */}
-        <button
-          onClick={onClose}
-          className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 transition"
-          aria-label="Đóng"
-          autoFocus
-        >
-          ✕
-        </button>
+//   return ReactDOM.createPortal(
+//     <div
+//       className="fixed inset-0 z-[9999] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4"
+//       onClick={onClose}
+//     >
+//       <div
+//         className="relative w-[92vw] max-w-[980px] max-h-[86vh] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+//         onClick={(e) => e.stopPropagation()}
+//       >
+//         {/* nút đóng */}
+//         <button
+//           onClick={onClose}
+//           className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 transition"
+//           aria-label="Đóng"
+//           autoFocus
+//         >
+//           ✕
+//         </button>
 
-        {/* header */}
-        <div className="px-6 pt-6 pb-3 text-center">
-          <div className="inline-block px-4 py-1 rounded-full bg-emerald-50 text-emerald-700 font-extrabold">
-            2 CA
-          </div>
-          <h2 className="mt-2 text-3xl font-extrabold text-[#001F5D]">
-            {title}
-          </h2>
-        </div>
+//         {/* header */}
+//         <div className="px-6 pt-6 pb-3 text-center">
+//           <div className="inline-block px-4 py-1 rounded-full bg-emerald-50 text-emerald-700 font-extrabold">
+//             2 CA
+//           </div>
+//           <h2 className="mt-2 text-3xl font-extrabold text-[#001F5D]">
+//             {title}
+//           </h2>
+//         </div>
 
-        {/* nội dung (scroll) */}
-        <div className="px-6 pb-4 overflow-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {schedule.map((r, i) => (
-              <Reveal key={i} delayMs={80 * i}>
-                <div className="rounded-2xl border border-slate-200 p-5 bg-slate-50">
-                  <div className="flex items-center justify-between">
-                    <span className="text-lg font-extrabold text-[#0a1b50]">
-                      {r.grade}
-                    </span>
-                    <span className="text-xs font-bold px-2 py-1 rounded bg-emerald-600 text-white">
-                      {r.shift}
-                    </span>
-                  </div>
-                  <div className="mt-2 text-[15px]">
-                    <div className="font-semibold">📅 {r.days}</div>
-                    <div className="text-slate-600">({r.note})</div>
-                    <div className="mt-1 font-semibold">🕒 {r.time}</div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+//         {/* nội dung (scroll) */}
+//         <div className="px-6 pb-4 overflow-auto">
+//           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+//             {schedule.map((r, i) => (
+//               <Reveal key={i} delayMs={80 * i}>
+//                 <div className="rounded-2xl border border-slate-200 p-5 bg-slate-50">
+//                   <div className="flex items-center justify-between">
+//                     <span className="text-lg font-extrabold text-[#0a1b50]">
+//                       {r.grade}
+//                     </span>
+//                     <span className="text-xs font-bold px-2 py-1 rounded bg-emerald-600 text-white">
+//                       {r.shift}
+//                     </span>
+//                   </div>
+//                   <div className="mt-2 text-[15px]">
+//                     <div className="font-semibold">📅 {r.days}</div>
+//                     <div className="text-slate-600">({r.note})</div>
+//                     <div className="mt-1 font-semibold">🕒 {r.time}</div>
+//                   </div>
+//                 </div>
+//               </Reveal>
+//             ))}
+//           </div>
 
-          <p className="mt-6 text-slate-600 leading-relaxed text-center">
-            Lộ trình bám sát – luyện đề chuẩn cấu trúc, phù hợp học sinh THPT.
-          </p>
-        </div>
+//           <p className="mt-6 text-slate-600 leading-relaxed text-center">
+//             Lộ trình bám sát – luyện đề chuẩn cấu trúc, phù hợp học sinh THPT.
+//           </p>
+//         </div>
 
-        {/* footer */}
-        <div className="px-6 pb-6 pt-4">
-          <a
-            href={ZALO_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full text-center rounded-2xl bg-[#001F5D] py-4 text-white text-[18px] font-semibold hover:opacity-95 active:scale-[0.99] transition"
-          >
-            ĐĂNG KÝ
-          </a>
-        </div>
-      </div>
-    </div>,
-    document.body
-  );
-}
+//         {/* footer */}
+//         <div className="px-6 pb-6 pt-4">
+//           <a
+//             href={ZALO_LINK}
+//             target="_blank"
+//             rel="noopener noreferrer"
+//             className="block w-full text-center rounded-2xl bg-[#001F5D] py-4 text-white text-[18px] font-semibold hover:opacity-95 active:scale-[0.99] transition"
+//           >
+//             ĐĂNG KÝ
+//           </a>
+//         </div>
+//       </div>
+//     </div>,
+//     document.body
+//   );
+// }
 
 const CourseItemTHPT = () => {
   const [hover, setHover] = useState(false);

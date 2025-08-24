@@ -1,0 +1,40 @@
+{
+  "lastUpdated": "2025-08-23",
+  "dataTHCS": [
+    {
+      "id": "combo",
+      "title": "Toán - Lý - Anh",
+      "price": "1.500.000",
+      "oldPrice": "850,000",
+      "image": "/"
+    },
+    {
+      "id": "toan",
+      "title": "Toán - Lý - Hóa",
+      "price": "1.500.000",
+      "oldPrice": "850,000",
+      "image": "/toan.png"
+    },
+    {
+      "id": "van",
+      "title": "Toán - Văn - Anh",
+      "price": "1.500.000",
+      "oldPrice": "850,000",
+      "image": "/van.png"
+    },
+    {
+      "id": "anh",
+      "title": "Toán - Hóa - Sinh",
+      "price": "1.500.000",
+      "oldPrice": "850,000",
+      "image": "/anh.png"
+    },
+    {
+      "id": "combo",
+      "title": "Hóa",
+      "price": "1.500.000",
+      "oldPrice": "850,000",
+      "image": "/hoa.png"
+    }
+  ]
+}
