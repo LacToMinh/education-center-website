@@ -54,7 +54,7 @@ const CourseItemTHPT = ({ course, onOpen, loading }) => {
             {/* Ảnh (nhỏ lại trên mobile) */}
             <button
               type="button"
-              onClick={() => onOpen(true)}
+              onClick={() => onOpen(course)}
               className={`card-img w-full overflow-hidden relative z-[1] transition-all duration-500 hover:scale-105
                            h-[160px] sm:h-[220px] md:h-[250px] ${
                              loading ? "opacity-60 cursor-not-allowed" : ""
@@ -63,7 +63,7 @@ const CourseItemTHPT = ({ course, onOpen, loading }) => {
               <img
                 src={course.image ?? "/ly.png"}
                 alt={course.title ?? "Khóa học"}
-                className="pt-3 w-[90%] md:w-[100%] xl:w-[90%] 2xl:w-[80%] mx-auto object-cover p-1"
+                className="pt-3 w-[90%] md:w-[90%] lg:w-[70%] xl:w-[75%] 2xl:w-[76%] mx-auto object-cover p-1"
               />
             </button>
 
@@ -71,7 +71,7 @@ const CourseItemTHPT = ({ course, onOpen, loading }) => {
             <div
               className="hidden lg:flex absolute bottom-[-58px] left-1/2 -translate-x-1/2 z-10 items-center px-2 py-1.5 sm:px-2 sm:py-2
                           bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px] cursor-pointer"
-              onClick={() => onOpen(true)}
+              onClick={() => onOpen(course)}
             >
               <button
                 className="inline-flex items-center justify-center w-[36px] sm:w-[45px]"
@@ -87,7 +87,7 @@ const CourseItemTHPT = ({ course, onOpen, loading }) => {
 
           <div className="info px-2.5 mt-[-10px] md:mt-[-20px] lg:mt-[-25px] 2xl:mt-[10px] sm:mt-[2px] sm:px-[10px] z-0 relative">
             <h6 className="title capitalize font-bold text-[16px] sm:text-[22px] text-black text-center">
-              Toán
+              {course?.title}
             </h6>
             <div className="flex items-center gap-2 sm:gap-3 justify-center">
               <span className="price font-bold text-[14px] sm:text-[17px] text-green-700">

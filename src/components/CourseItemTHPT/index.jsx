@@ -73,7 +73,7 @@ const CourseItemTHPT = ({ course, onOpen, loading }) => {
               <img
                 src={course.image ?? "/ly.png"}
                 alt={course.title ?? "Khóa học"}
-                className="pt-3 w-[90%] md:w-[100%] xl:w-[90%] 2xl:w-[80%] mx-auto object-cover p-1"
+                className="pt-3 w-[90%] md:w-[100%] lg:w-[70%] xl:w-[75%] 2xl:w-[76%] mx-auto object-cover p-1"
               />
             </button>
 

@@ -6,28 +6,28 @@
       "title": "Toán - Lý - Anh",
       "price": "1.500.000",
       "oldPrice": "850,000",
-      "image": "/"
+      "image": "/toan_van_anh.png"
     },
     {
       "id": "cb_TLH",
       "title": "Toán - Lý - Hóa",
       "price": "1.500.000",
       "oldPrice": "850,000",
-      "image": "/toan.png"
+      "image": "/toan_ly_hoa.png"
     },
     {
       "id": "cb_TVA",
       "title": "Toán - Văn - Anh",
       "price": "1.500.000",
       "oldPrice": "850,000",
-      "image": "/van.png"
+      "image": "/toan_ly_anh.png"
     },
     {
       "id": "cb_THS",
       "title": "Toán - Hóa - Sinh",
       "price": "1.500.000",
       "oldPrice": "850,000",
-      "image": "/anh.png"
+      "image": "/toan_hoa_sinh.png"
     }
   ]
 }
