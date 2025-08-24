@@ -10,12 +10,22 @@ const ZALO_LINK = "https://zalo.me/0369984849";
 const CourseItemTHPT = ({ course, onOpen, loading }) => {
   const [hoverIndex, setHoverIndex] = useState(null);
 
+  // sm — 640px
+
+  // md — 768px
+
+  // lg — 1024px
+
+  // xl — 1280px
+
+  // 2xl — 1536px
+
   return (
     <>
       <Reveal key={course.id ?? idx}>
         <div
           className="thcs-card group relative overflow-hidden w-full rounded-lg my-4 shadow-[0_1px_8px_rgba(0,0,0,0.1)] bg-white
-                       h-[245px] sm:h-[360px] md:h-[355px] lg:h-[380px]"
+                       h-[245px] sm:h-[360px] md:h-[355px] lg:h-[350px] xl:h-[350px] 2xl:h-[390px]"
           onMouseEnter={() => setHoverIndex(course.id)}
           onMouseLeave={() => setHoverIndex(null)}
         >
@@ -63,12 +73,12 @@ const CourseItemTHPT = ({ course, onOpen, loading }) => {
               <img
                 src={course.image ?? "/ly.png"}
                 alt={course.title ?? "Khóa học"}
-                className="pt-4 w-[90%] md:w-[100%] lg:w-[80%] mx-auto object-cover p-1"
+                className="pt-3 w-[90%] md:w-[100%] xl:w-[90%] 2xl:w-[80%] mx-auto object-cover p-1"
               />
             </button>
 
             <div
-              className="hidden lg:flex absolute bottom-[-48px] left-1/2 -translate-x-1/2 z-10 items-center px-2 py-1.5 sm:px-2 sm:py-2
+              className="hidden lg:flex absolute bottom-[-58px] left-1/2 -translate-x-1/2 z-50 items-center px-2 py-1.5 sm:px-2 sm:py-2
                               bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px] cursor-pointer"
               onClick={() => onOpen(course)}
             >
@@ -84,7 +94,7 @@ const CourseItemTHPT = ({ course, onOpen, loading }) => {
             </div>
           </div>
 
-          <div className="info px-2.5 mt-[-10px] md:mt-[-20px] lg:mt-[0px] sm:mt-[2px] sm:px-[10px] z-10 relative">
+          <div className="info px-2.5 mt-[-10px] md:mt-[-20px] lg:mt-[-25px] 2xl:mt-[10px] sm:mt-[2px] sm:px-[10px] z-0 relative">
             <h6 className="title capitalize font-bold text-[16px] sm:text-[22px] text-black text-center">
               {course.title}
             </h6>

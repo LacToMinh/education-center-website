@@ -134,7 +134,7 @@ const CourseItemTHPT = () => {
       <Reveal>
         <div
           className="thcs-card group relative overflow-hidden w-full rounded-lg my-4 shadow-[0_1px_8px_rgba(0,0,0,0.1)] bg-white
-                    h-[245px] sm:h-[360px] md:h-[355px] lg:h-[380px]"
+                    h-[245px] sm:h-[360px] md:h-[355px] lg:h-[350px] xl:h-[350px] 2xl:h-[390px]"
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
@@ -180,13 +180,13 @@ const CourseItemTHPT = () => {
               <img
                 src="/ly.png"
                 alt="Toán THCS"
-                className="pt-4 w-[90%] md:w-[100%] lg:w-[80%] mx-auto object-cover p-1"
+                className="pt-3 w-[90%] md:w-[100%] xl:w-[90%] 2xl:w-[80%] mx-auto object-cover p-1"
               />
             </button>
 
             {/* nút Chi tiết – canh giữa, nhỏ hơn trên mobile */}
             <div
-              className="hidden lg:flex absolute bottom-[-48px] left-1/2 -translate-x-1/2 z-10 items-center px-2 py-1.5 sm:px-2 sm:py-2
+              className="hidden lg:flex absolute bottom-[-58px] left-1/2 -translate-x-1/2 z-10 items-center px-2 py-1.5 sm:px-2 sm:py-2
                           bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px] cursor-pointer"
               onClick={() => setOpen(true)}
             >
@@ -202,8 +202,7 @@ const CourseItemTHPT = () => {
             </div>
           </div>
 
-          {/* info & giá (font nhỏ hơn trên mobile) */}
-          <div className="info px-2.5 mt-[-10px] md:mt-[-20px] lg:mt-[0px] sm:mt-[2px] sm:px-[10px] z-10 relative">
+          <div className="info px-2.5 mt-[-10px] md:mt-[-20px] lg:mt-[-25px] 2xl:mt-[10px] sm:mt-[2px] sm:px-[10px] z-0 relative">
             <h6 className="title capitalize font-bold text-[16px] sm:text-[22px] text-black text-center">
               Toán
             </h6>

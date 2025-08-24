@@ -19,8 +19,9 @@ const CourseSliderTHPT = (props) => {
             480:   { slidesPerView: 2, spaceBetween: 10 },      // Small
             640:   { slidesPerView: 2, spaceBetween: 12 },      // Tablet nhỏ
             768:   { slidesPerView: 3, spaceBetween: 14 },      // Tablet ngang
-            1024:  { slidesPerView: props.items || 3, spaceBetween: 15 }, // Desktop
-            1280:  { slidesPerView: props.items || 4, spaceBetween: 18 }, // Màn rộng
+            1024:  { slidesPerView: 3, spaceBetween: 15 }, // Desktop
+            1280:  { slidesPerView: 4, spaceBetween: 28 }, // Màn rộng
+            1536:  { slidesPerView: props.items, spaceBetween: 28 }, // Màn rộng
           }}
         >
           <SwiperSlide><CourseItemTHCS /></SwiperSlide>

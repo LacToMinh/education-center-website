@@ -134,7 +134,7 @@ export default function CourseItemTHCS() {
         {/* Card khóa học */}
         <div
           className="thcs-card group relative overflow-hidden w-full rounded-lg my-4 shadow-[0_1px_8px_rgba(0,0,0,0.1)] bg-white
-             h-[245px] sm:h-[360px] md:h-[375px]"
+             h-[245px] sm:h-[360px] md:h-[355px] lg:h-[350px] xl:h-[350px] 2xl:h-[370px]"
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
@@ -170,7 +170,6 @@ export default function CourseItemTHCS() {
               </span>
             </div>
 
-            {/* Ảnh (nhỏ lại trên mobile) */}
             <button
               type="button"
               onClick={() => setOpen(true)}
@@ -180,13 +179,13 @@ export default function CourseItemTHCS() {
               <img
                 src="/ly.png"
                 alt="Toán THCS"
-                className="pt-3 w-full h-full object-cover p-2"
+                className="pt-3 w-[90%] md:w-[100%] xl:w-[90%] 2xl:w-[90%] mx-auto object-cover p-1"
               />
             </button>
 
             {/* nút Chi tiết – canh giữa, nhỏ hơn trên mobile */}
             <div
-              className="hidden lg:flex absolute bottom-[-52px] left-1/2 -translate-x-1/2 z-10 items-center px-1 py-1 sm:px-2 sm:py-2
+              className="hidden lg:flex absolute bottom-[-58px] left-1/2 -translate-x-1/2 z-10 items-center px-1 py-1 sm:px-2 sm:py-2
                     bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px] cursor-pointer"
               onClick={() => setOpen(true)}
             >
@@ -201,9 +200,9 @@ export default function CourseItemTHCS() {
               </span>
             </div>
           </div>
-
-          {/* info & giá (font nhỏ hơn trên mobile) */}
-          <div className="info px-2.5 mt-[-10px] md:mt-0 lg:mt-0 sm:px-[10px] z-10 relative">
+          
+          {/* info and detail */}
+          <div className="info px-2.5 mt-[-10px] md:mt-[-20px] lg:mt-[-25px] 2xl:mt-[-10px] sm:mt-[2px] sm:px-[10px] z-0 relative">
             <h6 className="title capitalize font-bold text-[16px] sm:text-[22px] text-black text-center">
               Toán
             </h6>

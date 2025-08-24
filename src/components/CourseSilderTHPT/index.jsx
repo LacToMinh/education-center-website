@@ -14,8 +14,17 @@ const SCHEDULE_URL = `${import.meta.env.BASE_URL}schedules/thpt.json`;
 const ZALO_LINK = "https://zalo.me/0369984849";
 
 const CourseSilderTHPT = ({ items }) => {
-  const { data: coursesData, loading: loadingCourses, error: errorCourses } = useJson(COURSES_URL, { ttl: 120000 });
-  const { data: scheduleData, loading: loadingSchedule, error: errorSchedule, load: loadSchedule } = useLazyJson();
+  const {
+    data: coursesData,
+    loading: loadingCourses,
+    error: errorCourses,
+  } = useJson(COURSES_URL, { ttl: 120000 });
+  const {
+    data: scheduleData,
+    loading: loadingSchedule,
+    error: errorSchedule,
+    load: loadSchedule,
+  } = useLazyJson();
   const courses = coursesData?.dataTHPT ?? [];
 
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -41,14 +50,18 @@ const CourseSilderTHPT = ({ items }) => {
               480: { slidesPerView: 2, spaceBetween: 12 },
               640: { slidesPerView: 2, spaceBetween: 12 },
               768: { slidesPerView: 3, spaceBetween: 16 },
-              1024: { slidesPerView: items || 3, spaceBetween: 18 },
+              1024: { slidesPerView: 3, spaceBetween: 18 },
               1280: { slidesPerView: items || 4, spaceBetween: 24 },
             }}
           >
             {courses.map((c, idx) => (
               <SwiperSlide key={c.id ?? idx}>
                 <div>
-                  <CourseItemTHPT course={c} onOpen={openCourse} loading={loadingCourses} />
+                  <CourseItemTHPT
+                    course={c}
+                    onOpen={openCourse}
+                    loading={loadingCourses}
+                  />
                 </div>
               </SwiperSlide>
             ))}
@@ -56,8 +69,14 @@ const CourseSilderTHPT = ({ items }) => {
         </div>
       </div>
 
-      {loading && <div className="text-sm text-slate-600 mt-4">Đang tải dữ liệu...</div>}
-      {error && <div className="text-sm text-red-600 mt-4">Lỗi khi tải dữ liệu: {error.message}</div>}
+      {loading && (
+        <div className="text-sm text-slate-600 mt-4">Đang tải dữ liệu...</div>
+      )}
+      {error && (
+        <div className="text-sm text-red-600 mt-4">
+          Lỗi khi tải dữ liệu: {error.message}
+        </div>
+      )}
 
       {selectedCourse && (
         <ModalPortal
