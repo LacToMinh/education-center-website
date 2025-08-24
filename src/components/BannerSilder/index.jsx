@@ -17,6 +17,8 @@ const BannerSlider = () => {
         {[
           "/banner_ky_niem.png",
           "/co_so_vat_chat.png",
+          "/ielts_banner.png",
+          "/toeic_banner.png",
           "/hoi_thi_ve.png",
         ].map((src, i) => (
           <SwiperSlide key={i}>

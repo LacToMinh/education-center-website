@@ -56,13 +56,11 @@ const CourseSilderTHPT = ({ items }) => {
           >
             {courses.map((c, idx) => (
               <SwiperSlide key={c.id ?? idx}>
-                <div>
-                  <CourseItemTHPT
-                    course={c}
-                    onOpen={openCourse}
-                    loading={loadingCourses}
-                  />
-                </div>
+                <CourseItemTHPT
+                  course={c}
+                  onOpen={openCourse}
+                  loading={loadingCourses}
+                />
               </SwiperSlide>
             ))}
           </Swiper>

@@ -1,0 +1,29 @@
+{
+  "lastUpdated": "2025-08-24",
+  "schedulesByCourse": {
+    "cb_TLA": [
+      { "grade": "Lớp 10", "days": "Thứ 2, Thứ 4", "shift": "CA 1", "time": "18:00 - 19:30", "note": "Cơ bản + rèn kỹ năng" },
+      { "grade": "Lớp 10", "days": "Thứ 6", "shift": "CA 2", "time": "19:00 - 20:30", "note": "Tăng cường bài tập" },
+      { "grade": "Lớp 11", "days": "Thứ 3, Thứ 5", "shift": "CA 1", "time": "18:30 - 20:00", "note": "Ôn chuyên đề" },
+      { "grade": "Lớp 12", "days": "Thứ 6, Thứ 7", "shift": "CA 3", "time": "19:00 - 21:00", "note": "Luyện đề thi TN THPT" }
+    ],
+    "cb_TLH": [
+      { "grade": "Lớp 10", "days": "Thứ 3", "shift": "CA 1", "time": "17:30 - 19:00", "note": "Cơ bản & thực hành" },
+      { "grade": "Lớp 10", "days": "Thứ 5", "shift": "CA 2", "time": "17:30 - 19:00", "note": "Thí nghiệm mẫu" },
+      { "grade": "Lớp 11", "days": "Thứ 2, Thứ 4", "shift": "CA 1", "time": "18:30 - 20:00", "note": "Phân loại dạng bài" },
+      { "grade": "Lớp 12", "days": "Thứ 7", "shift": "CA 3", "time": "19:30 - 21:00", "note": "Luyện đề & mẹo làm bài" }
+    ],
+    "cb_TVA": [
+      { "grade": "Lớp 10", "days": "Thứ 2", "shift": "CA 1", "time": "18:30 - 20:00", "note": "Phản ứng cơ bản" },
+      { "grade": "Lớp 10", "days": "Thứ 4", "shift": "CA 2", "time": "18:30 - 20:00", "note": "Bài tập định lượng" },
+      { "grade": "Lớp 11", "days": "Thứ 6", "shift": "CA 1", "time": "18:30 - 20:30", "note": "Phản ứng hữu cơ" },
+      { "grade": "Lớp 12", "days": "Thứ 7", "shift": "CA 2", "time": "19:00 - 21:00", "note": "Luyện thi & đề mẫu" }
+    ],
+    "cb_THS": [
+      { "grade": "Lớp 10", "days": "Chủ Nhật", "shift": "CA 1", "time": "09:00 - 10:30", "note": "Kỹ năng viết đoạn" },
+      { "grade": "Lớp 10", "days": "Thứ 7", "shift": "CA 2", "time": "09:00 - 11:00", "note": "Phân tích tác phẩm" },
+      { "grade": "Lớp 11", "days": "Thứ 7", "shift": "CA 1", "time": "10:30 - 12:00", "note": "Ôn nghị luận" },
+      { "grade": "Lớp 12", "days": "Thứ 7, Chủ Nhật", "shift": "CA 3", "time": "10:30 - 12:30", "note": "Luyện thi TN & nghị luận" }
+    ]
+  }
+}

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import { useState } from "react";
 import { FaRegEye } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo_but_chi.png";
@@ -7,105 +6,17 @@ import Reveal from "../Reveal";
 
 const ZALO_LINK = "https://zalo.me/0369984849";
 
-/** Modal portal: render lên document.body để phủ toàn trang */
-// function ModalPortal({ title = "TOÁN THPT", schedule = [], onClose }) {
-//   useEffect(() => {
-//     document.body.classList.add("overflow-hidden");
-//     const onKey = (e) => e.key === "Escape" && onClose?.();
-//     window.addEventListener("keydown", onKey);
-//     return () => {
-//       document.body.classList.remove("overflow-hidden");
-//       window.removeEventListener("keydown", onKey);
-//     };
-//   }, [onClose]);
-
-//   return ReactDOM.createPortal(
-//     <div
-//       className="fixed inset-0 z-[9999] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4"
-//       onClick={onClose}
-//     >
-//       <div
-//         className="relative w-[92vw] max-w-[980px] max-h-[86vh] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col"
-//         onClick={(e) => e.stopPropagation()}
-//       >
-//         {/* nút đóng */}
-//         <button
-//           onClick={onClose}
-//           className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 transition"
-//           aria-label="Đóng"
-//           autoFocus
-//         >
-//           ✕
-//         </button>
-
-//         {/* header */}
-//         <div className="px-6 pt-6 pb-3 text-center">
-//           <div className="inline-block px-4 py-1 rounded-full bg-emerald-50 text-emerald-700 font-extrabold">
-//             2 CA
-//           </div>
-//           <h2 className="mt-2 text-3xl font-extrabold text-[#001F5D]">
-//             {title}
-//           </h2>
-//         </div>
-
-//         {/* nội dung (scroll) */}
-//         <div className="px-6 pb-4 overflow-auto">
-//           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-//             {schedule.map((r, i) => (
-//               <Reveal key={i} delayMs={80 * i}>
-//                 <div className="rounded-2xl border border-slate-200 p-5 bg-slate-50">
-//                   <div className="flex items-center justify-between">
-//                     <span className="text-lg font-extrabold text-[#0a1b50]">
-//                       {r.grade}
-//                     </span>
-//                     <span className="text-xs font-bold px-2 py-1 rounded bg-emerald-600 text-white">
-//                       {r.shift}
-//                     </span>
-//                   </div>
-//                   <div className="mt-2 text-[15px]">
-//                     <div className="font-semibold">📅 {r.days}</div>
-//                     <div className="text-slate-600">({r.note})</div>
-//                     <div className="mt-1 font-semibold">🕒 {r.time}</div>
-//                   </div>
-//                 </div>
-//               </Reveal>
-//             ))}
-//           </div>
-
-//           <p className="mt-6 text-slate-600 leading-relaxed text-center">
-//             Lộ trình bám sát – luyện đề chuẩn cấu trúc, phù hợp học sinh THPT.
-//           </p>
-//         </div>
-
-//         {/* footer */}
-//         <div className="px-6 pb-6 pt-4">
-//           <a
-//             href={ZALO_LINK}
-//             target="_blank"
-//             rel="noopener noreferrer"
-//             className="block w-full text-center rounded-2xl bg-[#001F5D] py-4 text-white text-[18px] font-semibold hover:opacity-95 active:scale-[0.99] transition"
-//           >
-//             ĐĂNG KÝ
-//           </a>
-//         </div>
-//       </div>
-//     </div>,
-//     document.body
-//   );
-// }
-
-const CourseItemTHPT = () => {
-  const [hover, setHover] = useState(false);
-  const [open, setOpen] = useState(false);
+const CourseItemTHPT = ({ course, onOpen, loading }) => {
+  const [hoverIndex, setHoverIndex] = useState(null);
 
   return (
     <>
-      <Reveal>
+      <Reveal key={course.id ?? idx}>
         <div
           className="thcs-card group relative overflow-hidden w-full rounded-lg my-4 shadow-[0_1px_8px_rgba(0,0,0,0.1)] bg-white
                     h-[245px] sm:h-[360px] md:h-[355px] lg:h-[350px] xl:h-[350px] 2xl:h-[390px]"
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
+          onMouseEnter={() => setHoverIndex(course.id)}
+          onMouseLeave={() => setHoverIndex(null)}
         >
           <div className="relative w-full overflow-hidden z-10">
             <div
@@ -117,10 +28,11 @@ const CourseItemTHPT = () => {
                 height: "200%",
                 background:
                   "linear-gradient(to right, transparent, rgba(255,255,255,0.7), rgba(255,255,255,0.9), transparent)",
-                transform: hover
-                  ? "rotate(45deg) translate(50%, 50%)"
-                  : "rotate(45deg) translate(-100%, -100%)",
-                opacity: hover ? 1 : 0,
+                transform:
+                  hoverIndex === course.id
+                    ? "rotate(45deg) translate(50%, 50%)"
+                    : "rotate(45deg) translate(-100%, -100%)",
+                opacity: hoverIndex === course.id ? 1 : 0,
                 transition: "transform 0.5s ease-out, opacity 0.5s ease-out",
                 pointerEvents: "none",
                 zIndex: 5,
@@ -142,13 +54,15 @@ const CourseItemTHPT = () => {
             {/* Ảnh (nhỏ lại trên mobile) */}
             <button
               type="button"
-              onClick={() => setOpen(true)}
-              className="card-img w-full overflow-hidden relative z-[1] transition-all duration-500 hover:scale-105
-                       h-[160px] sm:h-[220px] md:h-[250px]"
+              onClick={() => onOpen(true)}
+              className={`card-img w-full overflow-hidden relative z-[1] transition-all duration-500 hover:scale-105
+                           h-[160px] sm:h-[220px] md:h-[250px] ${
+                             loading ? "opacity-60 cursor-not-allowed" : ""
+                           }`}
             >
               <img
-                src="/ly.png"
-                alt="Toán THCS"
+                src={course.image ?? "/ly.png"}
+                alt={course.title ?? "Khóa học"}
                 className="pt-3 w-[90%] md:w-[100%] xl:w-[90%] 2xl:w-[80%] mx-auto object-cover p-1"
               />
             </button>
@@ -157,7 +71,7 @@ const CourseItemTHPT = () => {
             <div
               className="hidden lg:flex absolute bottom-[-58px] left-1/2 -translate-x-1/2 z-10 items-center px-2 py-1.5 sm:px-2 sm:py-2
                           bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px] cursor-pointer"
-              onClick={() => setOpen(true)}
+              onClick={() => onOpen(true)}
             >
               <button
                 className="inline-flex items-center justify-center w-[36px] sm:w-[45px]"
@@ -177,10 +91,14 @@ const CourseItemTHPT = () => {
             </h6>
             <div className="flex items-center gap-2 sm:gap-3 justify-center">
               <span className="price font-bold text-[14px] sm:text-[17px] text-green-700">
-                399,000₫
+                {course.price
+                  ? `${course.price.toLocaleString()}₫`
+                  : "399,000₫"}
               </span>
               <span className="old-price line-through text-gray-400 text-xs sm:text-base">
-                499,000₫
+                {course.oldPrice
+                  ? `${course.oldPrice.toLocaleString()}₫`
+                  : "499,000₫"}
               </span>
             </div>
             <div className="flex w-full items-center">
@@ -209,15 +127,6 @@ const CourseItemTHPT = () => {
           </div>
         </div>
       </Reveal>
-
-      {/* Popup phủ toàn trang bằng portal */}
-      {open && (
-        <ModalPortal
-          title="TOÁN THPT"
-          schedule={scheduleTHPT}
-          onClose={() => setOpen(false)}
-        />
-      )}
     </>
   );
 };
