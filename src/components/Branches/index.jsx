@@ -18,11 +18,11 @@ export default function BranchesPro() {
       phone: "0369984849",
       hours: "T2–CN · 08:00–21:00",
       mapUrl:
-        "https://www.google.com/maps?q=S%E1%BB%9F+Sao,+Th%E1%BB%A7+D%E1%BA%A7u+M%E1%BB%99t,+B%C3%ACnh+D%C6%B0%C6%A1ng",
+        "https://maps.app.goo.gl/n13qo55fCzGqLmweA",
       // Embed phải có dạng https://www.google.com/maps/embed?pb=...
       embed:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7830.927!2d106.665!3d11.014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sS%E1%BB%9F%20Sao!2sTh%E1%BB%A7%20D%E1%BA%A7u%20M%E1%BB%99t!5e0!3m2!1svi!2s!4v1700000000000",
-      image: "/so-sao.png",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.047862670519!2d106.63528544696335!3d11.035035961187655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d100552d68ed%3A0x982e0b653a3025c0!2sTU%E1%BB%86%20NAM%20GROUP%20BUILDING!5e0!3m2!1svi!2s!4v1756128094557!5m2!1svi!2s",
+      image: "/images/maps/so-sao.png",
     },
     {
       name: "Chi nhánh Thịnh Gia",
@@ -32,7 +32,7 @@ export default function BranchesPro() {
       mapUrl: "https://maps.app.goo.gl/gt81vnwUDA6Ucrnp8",
       embed:
         "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3915.5821653759735!2d106.6234703!3d11.0699205!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174cd7497ee1151%3A0x8d2ba4900f2340ea!2zVHJ1bmcgdMOibSBk4bqheSBo4buNYyB2w6AgbHV54buHbiB0aGkgVE5lZHU!5e0!3m2!1svi!2s!4v1755000275221!5m2!1svi!2s",
-      image: "/thinh_gia.jpg",
+      image: "/images/maps/thinh_gia.jpg",
     },
   ];
 

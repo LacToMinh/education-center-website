@@ -6,9 +6,9 @@ import text_dayhocvaluyenthi from "../../assets/text_dayhocvaluyenthi.png";
 import { BulletList } from "../List";
 
 export default function IeltsToeic({
-  leftImage = "/ielts.png",
-  rightImage = "/toeic.png",
-  logoImage = "/logo_but_chi.png",
+  leftImage = "/images/others/ielts.png",
+  rightImage = "/images/others/toeic.png",
+  logoImage = "/images/icons/logo_but_chi.png",
   headlineTop = "HỆ THỐNG",
   bullets = [
     "Nâng tầm tiếng Anh",

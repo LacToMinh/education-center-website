@@ -15,11 +15,11 @@ const BannerSlider = () => {
         className="w-full h-full"
       >
         {[
-          "/banner_ky_niem.png",
-          "/co_so_vat_chat.png",
-          "/ielts_banner.png",
-          "/toeic_banner.png",
-          "/hoi_thi_ve.png",
+          "/images/banners/banner_ky_niem.png",
+          "/images/banners/co_so_vat_chat.png",
+          "/images/banners/ielts_banner.png",
+          "/images/banners/toeic_banner.png",
+          "/images/banners/hoi_thi_ve.png",
         ].map((src, i) => (
           <SwiperSlide key={i}>
             {/* Ảnh fill khung, crop đẹp */}

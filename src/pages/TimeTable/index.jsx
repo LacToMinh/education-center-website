@@ -339,7 +339,7 @@ export default function TimeTable() {
           Thời khóa biểu – Lớp {grade}
         </h1>
         <p className="text-slate-600 mt-1">
-          Mỗi giáo viên là một thẻ • Tối ưu cho mobile
+          Mỗi giáo viên là một thẻ • Môn giảng dạy
         </p>
       </div>
 

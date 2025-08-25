@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { FiFacebook, FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import { FaTiktok } from "react-icons/fa6";
-import logo from "/logo_but_chi.png"; // bật nếu bạn có logo
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -15,7 +14,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-3">
               <img
-                src={logo}
+                src="/images/icons/logo_but_chi.png"
                 alt="dayhocvaluyenthi"
                 className="h-10 w-10 object-contain"
               />
@@ -58,7 +57,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
               >
-                <img src="/zalo_icon.png" alt="Zalo" className="w-5 h-5" />
+                <img src="/images/icons/zalo_icon.png" alt="Zalo" className="w-5 h-5" />
               </a>
             </div>
           </div>

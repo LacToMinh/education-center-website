@@ -256,7 +256,7 @@ export default function MiniChatbot({
     },
     zalo: {
       bg: "bg-white text-[#0068ff] border border-sky-200",
-      icon: <img src="/zalo_icon.png" alt="" className="w-[24px] h-auto" />,
+      icon: <img src="/images/icons/zalo_icon.png" alt="" className="w-[24px] h-auto" />,
     },
     facebook: {
       bg: "bg-[#0866FF] text-white border border-white/20",
