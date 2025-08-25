@@ -62,7 +62,7 @@ export default function BranchesPro() {
             key={b.name}
             className="p-[1px] rounded-3xl bg-gradient-to-br from-[#001F5D]/20 via-transparent to-[#0ea5e9]/30 transition-transform duration-300 hover:scale-[1.01]"
           >
-            <div className="rounded-3xl bg-white/90 backdrop-blur shadow-[0_10px_30px_rgba(2,6,23,0.08)] grid grid-cols-1 md:grid-cols-2">
+            <div className="rounded-3xl bg-white/90 backdrop-blur shadow-[0_10px_30px_rgba(2,6,23,0.08)] grid grid-cols-1 md:grid-cols-2 z-0">
               {/* IMAGE (click to open) */}
               <figure
                 className="relative overflow-hidden rounded-3xl md:rounded-l-3xl md:rounded-r-none aspect-[16/9] md:aspect-[5/4] md:h-[360px] lg:h-[420px] cursor-pointer"
@@ -73,18 +73,21 @@ export default function BranchesPro() {
                   src={b.image}
                   alt={b.name}
                   loading="lazy"
-                  className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
+                  className="max-w-full max-h-full mx-auto sm:mx-0 md:mx-0 lg:mx-0 xl:mx-0 2xl:mx-auto object-contain object-center transition-transform duration-700 hover:scale-[1.03]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+
+                {/* overlay: visible on mobile, hidden on md/lg/xl, visible again on 2xl */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent block md:hidden 2xl:block" />
+
                 <div className="absolute bottom-3 left-3 right-3">
-                  <span className="inline-flex items-center rounded-xl bg-white/90 px-3 py-1 text-sm font-semibold text-slate-800 shadow">
+                  <span className="inline-flex items-center rounded-xl bg-slate-900/85 px-3 py-1 text-sm font-semibold text-white shadow-md backdrop-blur-sm">
                     {b.name}
                   </span>
                 </div>
               </figure>
 
               {/* INFO */}
-              <div className="p-5 md:p-7">
+              <div className="p-5 md:p-7 z-20">
                 <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
                   {b.name}
                 </h3>
@@ -125,7 +128,9 @@ export default function BranchesPro() {
                         className="inline-flex items-center gap-2 rounded-xl bg-[#001F5D] text-white px-[12px] sm:px-4 py-2 text-sm font-semibold hover:opacity-95"
                       >
                         <FiExternalLink />
-                        <span className="text-[13px] sm:text[14px]">Chỉ đường</span>
+                        <span className="text-[13px] sm:text[14px]">
+                          Chỉ đường
+                        </span>
                       </a>
                     )}
                     {b.embed && (
@@ -134,7 +139,9 @@ export default function BranchesPro() {
                         className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-[12px] sm:px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
                       >
                         <FiMap />
-                        <span className="text-[13px] sm:text[14px]">Xem bản đồ</span>
+                        <span className="text-[13px] sm:text[14px]">
+                          Xem bản đồ
+                        </span>
                       </button>
                     )}
                   </div>

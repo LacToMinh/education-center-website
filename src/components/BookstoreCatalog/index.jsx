@@ -18,13 +18,16 @@ import {
 const ZALO = "https://zalo.me/0369984849";
 
 /* ==================== MOCK FETCH (thay API thật khi sẵn) ==================== */
+/* Lưu ý: mình thêm thuộc tính `grade` (Lớp 6..Lớp 12) và đổi category thành
+   "Tổng ôn", "take note", "tự học", "global success" theo yêu cầu */
 const MOCK_PRODUCTS = [
   {
     id: "b001",
     title: "IELTS Academic 17 with Answers",
     author: "Cambridge",
     publisher: "Cambridge",
-    category: "IELTS",
+    category: "Tổng ôn",
+    grade: "Lớp 12",
     price: 219000,
     rating: 4.7,
     reviews: 128,
@@ -38,7 +41,8 @@ const MOCK_PRODUCTS = [
     title: "Collins – Grammar for IELTS",
     author: "Collins",
     publisher: "Collins",
-    category: "IELTS",
+    category: "tự học",
+    grade: "Lớp 11",
     price: 189000,
     rating: 4.5,
     reviews: 96,
@@ -52,7 +56,8 @@ const MOCK_PRODUCTS = [
     title: "Oxford Word Skills – Intermediate",
     author: "Ruth Gairns",
     publisher: "Oxford",
-    category: "Từ vựng",
+    category: "take note",
+    grade: "Lớp 10",
     price: 265000,
     rating: 4.8,
     reviews: 201,
@@ -66,7 +71,8 @@ const MOCK_PRODUCTS = [
     title: "TOEIC – 1000 RC Tests",
     author: "Vocab Team",
     publisher: "NXB Trẻ",
-    category: "TOEIC",
+    category: "global success",
+    grade: "Lớp 12",
     price: 175000,
     rating: 4.3,
     reviews: 78,
@@ -80,12 +86,13 @@ const MOCK_PRODUCTS = [
     title: "English Grammar in Use – 5th",
     author: "Raymond Murphy",
     publisher: "Cambridge",
-    category: "Ngữ pháp",
+    category: "Tổng ôn",
+    grade: "Lớp 9",
     price: 315000,
     rating: 4.9,
     reviews: 412,
     pages: 396,
-    cover: "/images/books/grammar-in-use.jpg",
+    cover: "/ly.png",
     badge: "Best Seller",
     tags: ["Grammar", "Reference"],
   },
@@ -94,7 +101,8 @@ const MOCK_PRODUCTS = [
     title: "TOEIC – Hacker Reading 2024",
     author: "Hacker Team",
     publisher: "Hacker",
-    category: "TOEIC",
+    category: "tự học",
+    grade: "Lớp 11",
     price: 235000,
     rating: 4.6,
     reviews: 154,
@@ -108,7 +116,8 @@ const MOCK_PRODUCTS = [
     title: "3000 Từ Vựng Tiếng Anh Thông Dụng",
     author: "Vũ Thị Mai Phương",
     publisher: "NXB ĐHQG",
-    category: "Từ vựng",
+    category: "take note",
+    grade: "Lớp 6",
     price: 129000,
     rating: 4.2,
     reviews: 63,
@@ -122,7 +131,8 @@ const MOCK_PRODUCTS = [
     title: "IELTS Writing Band 7+",
     author: "Simon",
     publisher: "Pearson",
-    category: "IELTS",
+    category: "global success",
+    grade: "Lớp 12",
     price: 285000,
     rating: 4.8,
     reviews: 233,
@@ -222,10 +232,23 @@ export default function BookstoreCatalog() {
   const allPubs = useMemo(() => unique(products.map((p) => p.publisher)), [products]);
   const allTags = useMemo(() => unique(products.flatMap((p) => p.tags || [])), [products]);
 
+  // all grades Lớp 6..Lớp 12
+  const allGrades = useMemo(
+    () =>
+      // if products don't contain all grades, still provide full range 6..12
+      unique(
+        Array.from({ length: 7 }, (_, i) => `Lớp ${6 + i}`).concat(
+          products.map((p) => p.grade)
+        )
+      ),
+    [products]
+  );
+
   const priceMin = 100000;
   const priceMax = 400000;
 
   const [filters, setFilters] = useState({
+    classes: [], // <-- new: lớp filter
     categories: [],
     publishers: [],
     minPrice: priceMin,
@@ -241,9 +264,10 @@ export default function BookstoreCatalog() {
       if (q) {
         const blob = `${p.title} ${p.author} ${p.publisher} ${p.category} ${
           p.tags?.join(" ") || ""
-        }`.toLowerCase();
+        } ${p.grade || ""}`.toLowerCase();
         if (!blob.includes(q)) return false;
       }
+      if (filters.classes.length && !filters.classes.includes(p.grade)) return false;
       if (filters.categories.length && !filters.categories.includes(p.category))
         return false;
       if (filters.publishers.length && !filters.publishers.includes(p.publisher))
@@ -392,6 +416,7 @@ export default function BookstoreCatalog() {
                 priceMax={priceMax}
                 filters={filters}
                 setFilters={setFilters}
+                allGrades={allGrades} // <-- pass grades
               />
             )}
           </div>
@@ -487,7 +512,7 @@ export default function BookstoreCatalog() {
                         {p.title}
                       </h3>
                       <p className="text-sm text-slate-500 mt-0.5">
-                        {p.author} • {p.publisher}
+                        {p.author} • {p.publisher} • <span className="text-xs">{p.grade}</span>
                       </p>
 
                       <div className="flex items-center gap-2 mt-2">
@@ -585,6 +610,7 @@ export default function BookstoreCatalog() {
                   filters={filters}
                   setFilters={setFilters}
                   compact
+                  allGrades={allGrades}
                 />
               )}
 
@@ -711,12 +737,27 @@ function Filters({
   filters,
   setFilters,
   compact = false,
+  allGrades = [],
 }) {
   return (
     <div className="rounded-2xl border bg-white p-4 shadow-sm">
       <h3 className="font-bold mb-3 flex items-center gap-2">
         <FiSliders /> Bộ lọc
       </h3>
+
+      {/* NEW: Lớp filter */}
+      <Section title="Lớp">
+        <TagGroup
+          options={allGrades}
+          values={filters.classes}
+          onToggle={(v) =>
+            setFilters((f) => ({
+              ...f,
+              classes: toggleInArray(f.classes, v),
+            }))
+          }
+        />
+      </Section>
 
       <Section title="Danh mục">
         <TagGroup
@@ -783,6 +824,7 @@ function Filters({
         className="mt-3 w-full rounded-xl border px-3 py-2 text-sm hover:bg-slate-50"
         onClick={() =>
           setFilters({
+            classes: [],
             categories: [],
             publishers: [],
             minPrice: priceMin,
@@ -829,6 +871,9 @@ function TagGroup({ options, values, onToggle }) {
     </div>
   );
 }
+
+/* ... rest of components (RatingPills, Stars, RangeDual, Thumb, SkeletonGrid, SidebarSkeleton, toggleInArray)
+   giữ nguyên như cũ (không đổi) ... */
 
 function RatingPills({ value, onChange }) {
   const opts = [0, 3, 4, 4.5];

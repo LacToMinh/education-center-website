@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
 import NotFound from "../pages/Error";
 import Home from "../pages/Home";
-import Cart from "../pages/Cart";
 import TimeTable from "../pages/TimeTable"
 import Branches from "../components/Branches";
 import ToeicDetail from "../pages/ToeicDetail";
@@ -17,7 +16,6 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
-      { path: "cart", element: <Cart /> },
       { path: "schedule", element: <TimeTable /> },
       { path: "branches", element: <Branches /> },
       { path: "/khoa-hoc/ielts", element: <IeltsDetail /> },
