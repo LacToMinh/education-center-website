@@ -6,35 +6,35 @@
       "title": "Toán - Văn - Anh",
       "price": "1.400.000",
       "oldPrice": "850,000",
-      "image": "/toan_van_anh.png"
+      "image": "/images/courses/toan_van_anh.png"
     },
     {
       "id": "toan",
       "title": "Toán",
       "price": "750,000",
       "oldPrice": "850,000",
-      "image": "/toan.png"
+      "image": "/images/courses/toan.png"
     },
     {
       "id": "van",
       "title": "Văn",
       "price": "750,000",
       "oldPrice": "850,000",
-      "image": "/van.png"
+      "image": "/images/courses/van.png"
     },
     {
       "id": "anh",
       "title": "Anh",
       "price": "750,000",
       "oldPrice": "850,000",
-      "image": "/anh.png"
+      "image": "/images/courses/anh.png"
     },
     {
       "id": "hoa",
       "title": "Hóa",
       "price": "750,000",
       "oldPrice": "850,000",
-      "image": "/hoa.png"
+      "image": "/images/courses/hoa.png"
     }
   ]
 }

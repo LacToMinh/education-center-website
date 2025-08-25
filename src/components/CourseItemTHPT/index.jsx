@@ -10,19 +10,9 @@ const ZALO_LINK = "https://zalo.me/0369984849";
 const CourseItemTHPT = ({ course, onOpen, loading }) => {
   const [hoverIndex, setHoverIndex] = useState(null);
 
-  // sm — 640px
-
-  // md — 768px
-
-  // lg — 1024px
-
-  // xl — 1280px
-
-  // 2xl — 1536px
-
   return (
     <>
-      <Reveal key={course.id ?? idx}>
+      <Reveal>
         <div
           className="thcs-card group relative overflow-hidden w-full rounded-lg my-4 shadow-[0_1px_8px_rgba(0,0,0,0.1)] bg-white
                        h-[245px] sm:h-[360px] md:h-[355px] lg:h-[350px] xl:h-[350px] 2xl:h-[390px]"

@@ -13,139 +13,11 @@ import {
   FiList,
   FiSliders,
 } from "react-icons/fi";
+import { useJson } from "../../hooks/useJson"; // <-- dùng hook đã có
 
 /* ==================== CONFIG ==================== */
 const ZALO = "https://zalo.me/0369984849";
-
-/* ==================== MOCK FETCH (thay API thật khi sẵn) ==================== */
-/* Lưu ý: mình thêm thuộc tính `grade` (Lớp 6..Lớp 12) và đổi category thành
-   "Tổng ôn", "take note", "tự học", "global success" theo yêu cầu */
-const MOCK_PRODUCTS = [
-  {
-    id: "b001",
-    title: "IELTS Academic 17 with Answers",
-    author: "Cambridge",
-    publisher: "Cambridge",
-    category: "Tổng ôn",
-    grade: "Lớp 12",
-    price: 219000,
-    rating: 4.7,
-    reviews: 128,
-    pages: 160,
-    cover: "/images/books/ielts17.jpg",
-    badge: "Mới",
-    tags: ["Practice Test", "Listening CD"],
-  },
-  {
-    id: "b002",
-    title: "Collins – Grammar for IELTS",
-    author: "Collins",
-    publisher: "Collins",
-    category: "tự học",
-    grade: "Lớp 11",
-    price: 189000,
-    rating: 4.5,
-    reviews: 96,
-    pages: 192,
-    cover: "/images/books/collins-grammar-ielts.jpg",
-    badge: "Hot",
-    tags: ["Grammar", "Self-study"],
-  },
-  {
-    id: "b003",
-    title: "Oxford Word Skills – Intermediate",
-    author: "Ruth Gairns",
-    publisher: "Oxford",
-    category: "take note",
-    grade: "Lớp 10",
-    price: 265000,
-    rating: 4.8,
-    reviews: 201,
-    pages: 208,
-    cover: "/images/books/oxford-word-skills.jpg",
-    badge: "Best Seller",
-    tags: ["Vocabulary", "Practice"],
-  },
-  {
-    id: "b004",
-    title: "TOEIC – 1000 RC Tests",
-    author: "Vocab Team",
-    publisher: "NXB Trẻ",
-    category: "global success",
-    grade: "Lớp 12",
-    price: 175000,
-    rating: 4.3,
-    reviews: 78,
-    pages: 280,
-    cover: "/images/books/toeic-1000-rc.jpg",
-    badge: "Hot",
-    tags: ["Reading", "Mock Tests"],
-  },
-  {
-    id: "b005",
-    title: "English Grammar in Use – 5th",
-    author: "Raymond Murphy",
-    publisher: "Cambridge",
-    category: "Tổng ôn",
-    grade: "Lớp 9",
-    price: 315000,
-    rating: 4.9,
-    reviews: 412,
-    pages: 396,
-    cover: "/ly.png",
-    badge: "Best Seller",
-    tags: ["Grammar", "Reference"],
-  },
-  {
-    id: "b006",
-    title: "TOEIC – Hacker Reading 2024",
-    author: "Hacker Team",
-    publisher: "Hacker",
-    category: "tự học",
-    grade: "Lớp 11",
-    price: 235000,
-    rating: 4.6,
-    reviews: 154,
-    pages: 312,
-    cover: "/images/books/toeic-hacker-reading.jpg",
-    badge: "Mới",
-    tags: ["Reading", "Strategy"],
-  },
-  {
-    id: "b007",
-    title: "3000 Từ Vựng Tiếng Anh Thông Dụng",
-    author: "Vũ Thị Mai Phương",
-    publisher: "NXB ĐHQG",
-    category: "take note",
-    grade: "Lớp 6",
-    price: 129000,
-    rating: 4.2,
-    reviews: 63,
-    pages: 240,
-    cover: "/images/books/3000-tu-vung.jpg",
-    badge: "",
-    tags: ["Vocabulary", "Flashcards"],
-  },
-  {
-    id: "b008",
-    title: "IELTS Writing Band 7+",
-    author: "Simon",
-    publisher: "Pearson",
-    category: "global success",
-    grade: "Lớp 12",
-    price: 285000,
-    rating: 4.8,
-    reviews: 233,
-    pages: 220,
-    cover: "/images/books/ielts-writing-7.jpg",
-    badge: "Best Seller",
-    tags: ["Writing", "Task 2"],
-  },
-];
-
-function mockFetchProducts() {
-  return new Promise((resolve) => setTimeout(() => resolve(MOCK_PRODUCTS), 900));
-}
+const STORE_URL = `${import.meta.env.BASE_URL}data/store/store.json`;
 
 /* ==================== HELPERS ==================== */
 const formatVND = (n) =>
@@ -197,20 +69,16 @@ const RangeThumbHider = () => (
 
 /* ==================== MAIN ==================== */
 export default function BookstoreCatalog() {
-  const [loading, setLoading] = useState(true);
-  const [products, setProducts] = useState([]);
+  // fetch products from public/data/store.json with TTL cache
+  const {
+    data: storeData,
+    loading: loadingProducts,
+    error: productsError,
+  } = useJson(STORE_URL, { ttl: 120000 }); // ttl = 2 phút (tùy chỉnh)
 
-  useEffect(() => {
-    let alive = true;
-    mockFetchProducts().then((data) => {
-      if (!alive) return;
-      setProducts(data);
-      setLoading(false);
-    });
-    return () => {
-      alive = false;
-    };
-  }, []);
+  const products = storeData?.products ?? [];
+  const loading = loadingProducts;
+  const error = productsError;
 
   // search/sort/grid/page/state
   const [query, setQuery] = useState("");
@@ -235,7 +103,6 @@ export default function BookstoreCatalog() {
   // all grades Lớp 6..Lớp 12
   const allGrades = useMemo(
     () =>
-      // if products don't contain all grades, still provide full range 6..12
       unique(
         Array.from({ length: 7 }, (_, i) => `Lớp ${6 + i}`).concat(
           products.map((p) => p.grade)
@@ -347,9 +214,15 @@ export default function BookstoreCatalog() {
             />
           </div>
 
-          {!loading && (
+          {!loading && !error && (
             <div className="inline-flex items-center gap-2 rounded-xl bg-sky-50 border border-sky-200 px-3 py-1.5 text-sm text-sky-700 md:inline-flex">
               {sorted.length} kết quả
+            </div>
+          )}
+
+          {error && (
+            <div className="text-sm text-red-600">
+              Lỗi khi tải sản phẩm: {error.message}
             </div>
           )}
 

@@ -6,28 +6,28 @@
       "title": "Toán",
       "price": "750,000",
       "oldPrice": "850,000",
-      "image": "/toan.png"
+      "image": "/images/courses/toan.png"
     },
     {
       "id": "ly",
       "title": "Lý",
       "price": "750,000",
       "oldPrice": "850,000",
-      "image": "/ly.png"
+      "image": "/images/courses/ly.png"
     },
     {
       "id": "hoa",
       "title": "Hóa",
       "price": "750,000",
       "oldPrice": "850,000",
-      "image": "/hoa.png"
+      "image": "/images/courses/hoa.png"
     },
     {
       "id": "van",
       "title": "Văn",
       "price": "750,000",
       "oldPrice": "850,000",
-      "image": "/van.png"
+      "image": "/images/courses/van.png"
     }
   ]
 }
