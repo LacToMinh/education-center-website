@@ -35,7 +35,7 @@ const CourseItemTHPT = ({ course, onOpen, loading }) => {
                 opacity: hoverIndex === course.id ? 1 : 0,
                 transition: "transform 0.5s ease-out, opacity 0.5s ease-out",
                 pointerEvents: "none",
-                zIndex: 5,
+                zIndex: 1,
               }}
             />
             {/* ribbon nhỏ hơn trên mobile */}
@@ -69,12 +69,12 @@ const CourseItemTHPT = ({ course, onOpen, loading }) => {
 
             {/* nút Chi tiết – canh giữa, nhỏ hơn trên mobile */}
             <div
-              className="hidden lg:flex absolute bottom-[-58px] left-1/2 -translate-x-1/2 z-10 items-center px-2 py-1.5 sm:px-2 sm:py-2
-                          bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[14px] cursor-pointer"
+              className="hidden lg:flex absolute bottom-[-58px] left-1/2 -translate-x-1/2 z-20 items-center px-2 py-1.5 sm:px-2 sm:py-2
+                          bg-[#eb7d00] rounded-md shadow-md transition-all duration-500 group-hover:bottom-[10px] sm:group-hover:bottom-[20px] cursor-pointer"
               onClick={() => onOpen(course)}
             >
               <button
-                className="inline-flex items-center justify-center w-[36px] sm:w-[45px]"
+                className="inline-flex items-center justify-center w-[36px] sm:w-[45px] z-20"
                 aria-label="Xem chi tiết"
               >
                 <FaRegEye className="text-[20px] sm:text-[26px] text-white" />
@@ -85,7 +85,7 @@ const CourseItemTHPT = ({ course, onOpen, loading }) => {
             </div>
           </div>
 
-          <div className="info px-2.5 mt-[-10px] md:mt-[-20px] lg:mt-[-25px] 2xl:mt-[10px] sm:mt-[2px] sm:px-[10px] z-0 relative">
+          <div className="info px-2.5 mt-[-10px] md:mt-[-20px] lg:mt-[-25px] 2xl:mt-[10px] sm:mt-[2px] sm:px-[10px] z-10 relative">
             <h6 className="title capitalize font-bold text-[16px] sm:text-[22px] text-black text-center">
               {course?.title}
             </h6>

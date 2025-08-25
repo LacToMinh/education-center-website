@@ -60,10 +60,10 @@ const Home = () => {
           <div className="flex items-center justify-between">
             {/* left section */}
             <div className="leftSec">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#FF5722]">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-black">
                 Chương trình Trung học cơ sở
               </h3>
-              <p className="text-sm sm:text-base md:text-lg font-normal text-[#FF7043]">
+              <p className="text-[15px] sm:text-base md:text-lg font-medium text-[#ff4f1a]">
                 Dành cho học sinh cấp 2
               </p>
             </div>
@@ -71,6 +71,9 @@ const Home = () => {
 
           <CourseSliderTHCS items={5} />
         </div>
+        <p className="container mt-2 text-center text-[14px] text-slate-500 md:hidden">
+          Nhấp vào mũi tên hoặc lướt qua để xem thêm.
+        </p>
       </section>
 
       {/* THPT */}
@@ -79,10 +82,10 @@ const Home = () => {
           <div className="flex items-center justify-between">
             {/* left section */}
             <div className="leftSec">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-[#0F7B4B]">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-black">
                 Chương trình Trung học phổ thông
               </h3>
-              <p className="text-sm sm:text-base md:text-lg font-normal text-[#2BAE66]">
+              <p className="text-[15px] sm:text-base md:text-lg font-medium text-[#147e44]">
                 Dành cho học sinh cấp 3
               </p>
             </div>
@@ -90,24 +93,30 @@ const Home = () => {
 
           <CourseSliderTHPT items={4} />
         </div>
+        <p className="container mt-2 text-center text-[14px] text-slate-500 md:hidden">
+          Nhấp vào mũi tên hoặc lướt qua để xem thêm.
+        </p>
       </section>
 
       <section className="mt-[-40px]">
         <div className="container">
           <div className="flex items-center justify-between">
-            <p className="text-sm sm:text-base md:text-lg font-normal text-[#2BAE66]">
-              Khóa học combo
+            <p className="text-[15px] sm:text-base md:text-lg font-medium text-[#5a0394]">
+              Các khóa học combo
             </p>
           </div>
           <CourseSliderCombo />
         </div>
+        <p className="container mt-2 text-center text-[14px] text-slate-500 md:hidden">
+          Nhấp vào mũi tên hoặc lướt qua để xem thêm.
+        </p>
       </section>
 
-      <div className="leftSec container">
+      <div className="leftSec container pt-20">
         <h3 className="text-[22px] font-semibold pt-2">
           Các khóa học Ielts - Toeic
         </h3>
-        <p className="text-[15px] font-normal">Dành cho mọi học sinh</p>
+        <p className="text-[16px] font-normal">Dành cho mọi học sinh</p>
       </div>
 
       <IeltsToeic />

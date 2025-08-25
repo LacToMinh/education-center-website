@@ -29,7 +29,7 @@ const CourseItemTHPT = ({ course, onOpen, loading }) => {
           onMouseEnter={() => setHoverIndex(course.id)}
           onMouseLeave={() => setHoverIndex(null)}
         >
-          <div className="relative w-full overflow-hidden z-10">
+          <div className="relative w-full overflow-hidden z-0">
             <div
               style={{
                 position: "absolute",

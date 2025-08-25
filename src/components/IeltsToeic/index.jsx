@@ -256,7 +256,7 @@ export default function IeltsToeic({
       </div>
 
       <p className="mt-2 text-center text-sm text-slate-500 md:hidden">
-        Nhấn vào poster để xem thông tin khoá học.
+        Nhấp vào poster để xem thông tin khoá học.
       </p>
     </section>
   );
