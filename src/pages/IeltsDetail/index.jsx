@@ -7,7 +7,7 @@ export default function IeltsDetail() {
         title: "Khoá học IELTS",
         subtitle:
           "Khoá học IELTS toàn diện, giúp bạn đạt mục tiêu từ 5.5 đến 8.0+ với giáo viên kinh nghiệm.",
-        heroImage: "/ielts_banner.png",
+        heroImage: "/images/banners/ielts_banner.png",
         themeFrom: "#ff3b30",
         themeTo: "#ff7a59",
         textColor: "white",

@@ -7,7 +7,7 @@ export default function ToeicDetail() {
         title: "Khoá học TOEIC",
         subtitle:
           "Khoá học TOEIC cam kết nâng điểm nhanh, giúp bạn đạt mục tiêu 500–900+.",
-        heroImage: "/toeic_banner.png",
+        heroImage: "/images/banners/toeic_banner.png",
         themeFrom: "#1e6ee9",
         themeTo: "#00a2ff",
         textColor: "white",
