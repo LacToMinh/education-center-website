@@ -41,9 +41,9 @@ const TTB_DATA = {
       day: 7,
       start: "18:00",
       end: "19:30",
-      subject: "Ín Lizsh",
+      subject: "Anh",
       room: "P101",
-      teacher: "Cô Sỹ",
+      teacher: "Cô My",
     },
   ],
   7: [

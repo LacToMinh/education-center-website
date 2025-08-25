@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2025-08-23",
+  "lastUpdated": "2025-08-25",
   "dataTHCS": [
     {
       "id": "combo",
-      "title": "Toán - Lý - Anh",
-      "price": "750,000",
+      "title": "Toán - Văn - Anh",
+      "price": "1.400.000",
       "oldPrice": "850,000",
-      "image": "/"
+      "image": "/toan_van_anh.png"
     },
     {
       "id": "toan",
@@ -30,7 +30,7 @@
       "image": "/anh.png"
     },
     {
-      "id": "combo",
+      "id": "hoa",
       "title": "Hóa",
       "price": "750,000",
       "oldPrice": "850,000",
