@@ -20,13 +20,12 @@ body {
 
 
 .productsSlider { 
-  overscroll-behavior-x: contain; /* ngăn cuộn ngang lan sang ngoài */
+  overscroll-behavior-x: contain;
 }
 
 .productsSlider .swiper { 
-  touch-action: pan-y;            /* ưu tiên vuốt dọc cho trang, Swiper xử lý ngang */
+  touch-action: pan-y;
 }
-
 
 /* thcs-card */
 /* <= 389px: siêu nhỏ */
@@ -63,13 +62,6 @@ body {
 
 /* Swiper nav cho mobile */
 @media (max-width: 639px) {
-  /* Đổi màu mũi tên & size chuẩn của Swiper */
-  .productsSlider .swiper {
-    --swiper-navigation-size: 18px;   /* size icon mũi tên */
-    --swiper-theme-color: #111111;    /* màu icon (đen) */
-    box-sizing: border-box !important;
-  }
-
   /* Kích thước/nền/định vị nút */
   .productsSlider .swiper-button-next,
   .productsSlider .swiper-button-prev {
@@ -78,7 +70,7 @@ body {
     border-radius: 9999px;
     background: #001F5D;   /* nền mờ cho dễ bấm, vẫn nhẹ nhàng */
     color: #ffe70f;                 /* đề phòng theme variable không ăn */
-    top: 45%;
+    top: 55%;
     font-weight: bolder !important;
     right:-1px !important;
     cursor: pointer;
@@ -88,7 +80,40 @@ body {
   /* Font-size icon – phòng trường hợp biến không áp dụng */
   .productsSlider .swiper-button-next::after,
   .productsSlider .swiper-button-prev::after {
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  /* Thu hẹp sát mép cho khỏi che nội dung */
+  .productsSlider .swiper-button-prev { left: 6px; }
+  .productsSlider .swiper-button-next { right: 6px; }
+
+  /* Khi disabled thì mờ hơn chút */
+  .productsSlider .swiper-button-disabled {
+    opacity: 0.35 !important;
+  }
+}
+
+/* mũi tên cho màn lớn hơn 639px */
+@media (min-width: 639px) {
+  /* Kích thước/nền/định vị nút */
+  .productsSlider .swiper-button-next,
+  .productsSlider .swiper-button-prev {
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    background: #001F5D;   /* nền mờ cho dễ bấm, vẫn nhẹ nhàng */
+    color: #ffe70f;                 /* đề phòng theme variable không ăn */
+    top: 50%;
+    font-weight: bolder !important;
+    right:-1px !important;
+    cursor: pointer;
+    animation: arrow-bounce 1.4s ease-in-out infinite;
+  }
+
+  /* Font-size icon – phòng trường hợp biến không áp dụng */
+  .productsSlider .swiper-button-next::after,
+  .productsSlider .swiper-button-prev::after {
+    font-size: 20px;
   }
 
   /* Thu hẹp sát mép cho khỏi che nội dung */
