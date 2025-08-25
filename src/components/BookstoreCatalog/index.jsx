@@ -312,7 +312,7 @@ export default function BookstoreCatalog() {
                     layout
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="group rounded-2xl border bg-white shadow-sm overflow-hidden"
+                    className="group rounded-2xl border bg-white shadow-sm overflow-hidden flex flex-col h-full"
                   >
                     {/* IMAGE */}
                     <div className="relative aspect-[4/5] overflow-hidden">
@@ -380,20 +380,20 @@ export default function BookstoreCatalog() {
                     </div>
 
                     {/* CONTENT */}
-                    <div className="p-3">
-                      <h3 className="font-semibold text-slate-900 line-clamp-2 h-[48px]">
+                    <div className="p-3 flex flex-col flex-1">
+                      <h3 className="font-semibold text-slate-900 line-clamp-3 h-[48px]">
                         {p.title}
                       </h3>
-                      <p className="text-sm text-slate-500 mt-0.5">
+                      <p className="text-sm text-slate-500 my-auto">
                         {p.author} • {p.publisher} • <span className="text-xs">{p.grade}</span>
                       </p>
 
-                      <div className="flex items-center gap-2 mt-2">
+                      <div className="flex items-center gap-2 mt-auto">
                         <Stars value={p.rating} />
                         <span className="text-xs text-slate-500">({p.reviews})</span>
                       </div>
 
-                      <div className="mt-2 flex items-center justify-between">
+                      <div className="mt-auto flex items-center justify-between">
                         <span className="font-extrabold text-[#001F5D]">
                           {formatVND(p.price)}
                         </span>
