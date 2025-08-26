@@ -140,7 +140,7 @@ const Footer = () => {
                 id="email"
                 // type="email"
                 placeholder="Email của bạn"
-                className="w-[60%] rounded-xl bg-white/10 placeholder:text-slate-200/60 text-white px-4 py-3 outline-none focus:ring-2 focus:ring-[#FBCD02]"
+                className="w-[60%] rounded-xl hidden xl:block bg-white/10 placeholder:text-slate-200/60 text-white px-4 py-3 outline-none focus:ring-2 focus:ring-[#FBCD02]"
               />
               <a
                 href="https://zalo.me/0369984849"

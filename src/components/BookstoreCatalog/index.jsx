@@ -96,9 +96,18 @@ export default function BookstoreCatalog() {
   }, [query]);
 
   // Filters
-  const allCats = useMemo(() => unique(products.map((p) => p.category)), [products]);
-  const allPubs = useMemo(() => unique(products.map((p) => p.publisher)), [products]);
-  const allTags = useMemo(() => unique(products.flatMap((p) => p.tags || [])), [products]);
+  const allCats = useMemo(
+    () => unique(products.map((p) => p.category)),
+    [products]
+  );
+  const allPubs = useMemo(
+    () => unique(products.map((p) => p.publisher)),
+    [products]
+  );
+  const allTags = useMemo(
+    () => unique(products.flatMap((p) => p.tags || [])),
+    [products]
+  );
 
   // all grades Lớp 6..Lớp 12
   const allGrades = useMemo(
@@ -134,12 +143,17 @@ export default function BookstoreCatalog() {
         } ${p.grade || ""}`.toLowerCase();
         if (!blob.includes(q)) return false;
       }
-      if (filters.classes.length && !filters.classes.includes(p.grade)) return false;
+      if (filters.classes.length && !filters.classes.includes(p.grade))
+        return false;
       if (filters.categories.length && !filters.categories.includes(p.category))
         return false;
-      if (filters.publishers.length && !filters.publishers.includes(p.publisher))
+      if (
+        filters.publishers.length &&
+        !filters.publishers.includes(p.publisher)
+      )
         return false;
-      if (p.price < filters.minPrice || p.price > filters.maxPrice) return false;
+      if (p.price < filters.minPrice || p.price > filters.maxPrice)
+        return false;
       if (p.rating < filters.minRating) return false;
       if (filters.tags.length) {
         const hasAll = filters.tags.every((t) => p.tags?.includes(t));
@@ -189,7 +203,9 @@ export default function BookstoreCatalog() {
           { label: "Nhà sách", to: "/store" },
         ]}
         current={
-          filters.categories.length === 1 ? filters.categories[0] : "Tất cả sản phẩm"
+          filters.categories.length === 1
+            ? filters.categories[0]
+            : "Tất cả sản phẩm"
         }
       />
 
@@ -197,10 +213,14 @@ export default function BookstoreCatalog() {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-5">
         <div className="flex items-center gap-2">
           <span className="inline-flex items-center gap-2 rounded-2xl bg-[#001F5D] text-white px-4 py-2 text-sm font-semibold shadow-sm">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h10a2 2 0 0 1 2 2v9H5V6a2 2 0 0 1 2-2zm12 13H5l-2 3h18l-2-3z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7 4h10a2 2 0 0 1 2 2v9H5V6a2 2 0 0 1 2-2zm12 13H5l-2 3h18l-2-3z" />
+            </svg>
             Nhà sách dayhocvaluyenthi
           </span>
-          <span className="text-sm text-slate-500">Sản phẩm chất lượng – Giá tốt</span>
+          <span className="text-sm text-slate-500">
+            Sản phẩm chất lượng – Giá tốt
+          </span>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
@@ -303,7 +323,11 @@ export default function BookstoreCatalog() {
             <>
               <div
                 className={`grid gap-4 grid-cols-2 ${
-                  grid === 2 ? "md:grid-cols-2" : grid === 4 ? "md:grid-cols-4" : "md:grid-cols-3"
+                  grid === 2
+                    ? "md:grid-cols-2"
+                    : grid === 4
+                    ? "md:grid-cols-4"
+                    : "md:grid-cols-3"
                 }`}
               >
                 {items.map((p) => (
@@ -315,7 +339,7 @@ export default function BookstoreCatalog() {
                     className="group rounded-2xl border bg-white shadow-sm overflow-hidden flex flex-col h-full"
                   >
                     {/* IMAGE */}
-                    <div className="relative aspect-[4/5] overflow-hidden">
+                    <div className="p-2 relative aspect-[3/4] overflow-hidden">
                       <img
                         src={p.cover}
                         alt={p.title}
@@ -358,10 +382,12 @@ export default function BookstoreCatalog() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label="Mua qua Zalo"
-                          className="h-10 w-10 rounded-full grid place-items-center bg-[#001F5D] text-white shadow-md active:scale-95"
+                          className="h-10 w-10 rounded-full grid place-items-center bg-white text-white shadow-md active:scale-95"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <span className="font-bold">Z</span>
+                          <span >
+                            <img src="/images/icons/zalo_icon.png" alt="" className="w-[50%] mx-auto" />
+                          </span>
                         </a>
                         <button
                           aria-label="Xem nhanh"
@@ -371,7 +397,12 @@ export default function BookstoreCatalog() {
                           }}
                           className="h-10 w-10 rounded-full grid place-items-center bg-white/95 backdrop-blur border shadow-md active:scale-95"
                         >
-                          <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor">
+                          <svg
+                            viewBox="0 0 24 24"
+                            className="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                          >
                             <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" />
                             <circle cx="12" cy="12" r="3" />
                           </svg>
@@ -385,12 +416,15 @@ export default function BookstoreCatalog() {
                         {p.title}
                       </h3>
                       <p className="text-sm text-slate-500 my-auto">
-                        {p.author} • {p.publisher} • <span className="text-xs">{p.grade}</span>
+                        {p.author} • {p.publisher} •{" "}
+                        <span className="text-xs">{p.grade}</span>
                       </p>
 
                       <div className="flex items-center gap-2 mt-auto">
                         <Stars value={p.rating} />
-                        <span className="text-xs text-slate-500">({p.reviews})</span>
+                        <span className="text-xs text-slate-500">
+                          ({p.reviews})
+                        </span>
                       </div>
 
                       <div className="mt-auto flex items-center justify-between">
@@ -546,7 +580,9 @@ export default function BookstoreCatalog() {
                       {quick.category} • {quick.publisher}
                     </div>
                     <h3 className="mt-2 text-xl font-bold">{quick.title}</h3>
-                    <p className="text-sm text-slate-500">Tác giả: {quick.author}</p>
+                    <p className="text-sm text-slate-500">
+                      Tác giả: {quick.author}
+                    </p>
 
                     <div className="flex items-center gap-2 mt-2">
                       <Stars value={quick.rating} />
@@ -760,7 +796,9 @@ function RatingPills({ value, onChange }) {
             aria-pressed={active}
             onClick={() => onChange(r)}
             className={`inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-[13px] md:text-sm border transition-colors ${
-              active ? "bg-slate-900 text-white border-slate-900" : "hover:bg-slate-50"
+              active
+                ? "bg-slate-900 text-white border-slate-900"
+                : "hover:bg-slate-50"
             }`}
           >
             <Stars value={r || 0} small />
@@ -890,7 +928,12 @@ function Thumb({ left }) {
 
 /* ==================== SKELETONS ==================== */
 function SkeletonGrid({ grid }) {
-  const cols = grid === 2 ? "md:grid-cols-2" : grid === 4 ? "md:grid-cols-4" : "md:grid-cols-3";
+  const cols =
+    grid === 2
+      ? "md:grid-cols-2"
+      : grid === 4
+      ? "md:grid-cols-4"
+      : "md:grid-cols-3";
   return (
     <div className={`grid gap-4 grid-cols-2 ${cols}`}>
       {Array.from({ length: 8 }).map((_, i) => (
