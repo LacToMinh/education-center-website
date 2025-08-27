@@ -2,7 +2,8 @@ import CourseDetail from "../../components/CourseDetail";
 
 export default function IeltsDetail() {
   return (
-    <CourseDetail
+    <>
+      <CourseDetail
       cfg={{
         title: "Khoá học IELTS",
         subtitle:
@@ -58,5 +59,6 @@ export default function IeltsDetail() {
         },
       }}
     />
+    </>
   );
 }

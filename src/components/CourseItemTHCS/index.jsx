@@ -54,13 +54,15 @@ export default function CourseItemTHCS({ course, onOpen, loading }) {
             <button
               type="button"
               onClick={() => onOpen(course)}
-              className="card-img w-full overflow-hidden relative z-[1] transition-all duration-500 hover:scale-105
-                 h-[160px] sm:h-[220px] md:h-[250px]"
+              className={`card-img w-full overflow-hidden relative z-[1] transition-all duration-500 hover:scale-105
+                           h-[160px] sm:h-[220px] md:h-[250px] ${
+                             loading ? "opacity-60 cursor-not-allowed" : ""
+                           }`}
             >
               <img
                 src={course.image ?? "/ly.png"}
                 alt={course.title ?? "khóa học"}
-                className="pt-3 w-[90%] md:w-[100%] xl:w-[90%] 2xl:w-[90%] mx-auto object-cover p-1"
+                className="pt-3 w-[90%] md:w-[100%] lg:w-[70%] xl:w-[75%] 2xl:w-[83%] mx-auto object-cover p-1"
               />
             </button>
 
