@@ -53,8 +53,7 @@ export default function BranchesPro() {
           Gần bạn – tiện bạn
         </h2>
         <p className="text-slate-600 mt-2 max-w-2xl mx-auto">
-          Đến cơ sở gần nhất để được tư vấn, kiểm tra đầu vào và đăng ký trực
-          tiếp. Chúng tôi luôn sẵn sàng hỗ trợ!
+          Đến cơ sở gần nhất để được tư vấn - Chúng tôi luôn sẵn sàng hỗ trợ!
         </p>
       </div>
 

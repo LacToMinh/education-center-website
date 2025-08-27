@@ -57,7 +57,11 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
               >
-                <img src="/images/icons/zalo_icon.png" alt="Zalo" className="w-5 h-5" />
+                <img
+                  src="/images/icons/zalo_icon.png"
+                  alt="Zalo"
+                  className="w-5 h-5"
+                />
               </a>
             </div>
           </div>
@@ -174,15 +178,27 @@ const Footer = () => {
           © {year} Lạc Tô Minh. All rights reserved.
         </a>
         <div className="text-xs flex items-center gap-4 text-slate-200/70">
-          <Link to="#" className="hover:text-white">
+          <Link
+            to="https://www.facebook.com/minh.lac.9406/"
+            target="_blank"
+            className="hover:text-white"
+          >
             Điều khoản
           </Link>
           <span className="opacity-70">•</span>
-          <Link to="#" className="hover:text-white">
+          <Link
+            to="https://www.facebook.com/minh.lac.9406/"
+            target="_blank"
+            className="hover:text-white"
+          >
             Bảo mật
           </Link>
           <span className="opacity-70">•</span>
-          <Link to="#" className="hover:text-white">
+          <Link
+            to="https://www.facebook.com/minh.lac.9406/"
+            target="_blank"
+            className="hover:text-white"
+          >
             Cookie
           </Link>
         </div>
