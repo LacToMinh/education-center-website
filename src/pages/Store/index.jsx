@@ -1,5 +1,11 @@
 import BookstoreCatalog from "../../components/BookstoreCatalog";
+import ScrollToTop from "../../utils/ScrollToTop";
 
 export default function StorePage() {
-  return <BookstoreCatalog />;
+  return (
+    <>
+      <ScrollToTop />
+      <BookstoreCatalog />
+    </>
+  );
 }

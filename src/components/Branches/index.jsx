@@ -8,6 +8,7 @@ import {
   FiMap,
   FiX,
 } from "react-icons/fi";
+import ScrollToTop from "../../utils/ScrollToTop";
 
 export default function BranchesPro() {
   // ===== DATA mẫu – thay bằng dữ liệu thật của bạn =====
@@ -40,7 +41,9 @@ export default function BranchesPro() {
   const [openImage, setOpenImage] = useState(null); // string url
 
   return (
-    <section className="max-w-[75%] mx-auto py-14">
+    <>
+      <ScrollToTop />
+      <section className="max-w-[75%] mx-auto py-14">
       {/* Header */}
       <div className="text-center mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#001F5D]/10 text-[#001F5D] text-xs font-semibold">
@@ -175,6 +178,7 @@ export default function BranchesPro() {
         <ImageModal imageUrl={openImage} onClose={() => setOpenImage(null)} />
       )}
     </section>
+    </>
   );
 }
 

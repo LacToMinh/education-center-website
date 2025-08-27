@@ -1,6 +1,7 @@
 // Timetable.jsx
 import React, { useMemo, useState } from "react";
 import { FiTrash2 } from "react-icons/fi";
+import ScrollToTop from "../../utils/ScrollToTop";
 
 /* ====== DATA MẪU ====== */
 const TTB_DATA = {
@@ -332,201 +333,204 @@ export default function TimeTable() {
   };
 
   return (
-    <section className="container mx-auto px-4 py-10">
-      {/* Header */}
-      <div className="mb-6 text-center">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#001F5D]">
-          Thời khóa biểu – Lớp {grade}
-        </h1>
-        <p className="text-slate-600 mt-1">
-          Mỗi giáo viên là một thẻ • Môn giảng dạy
-        </p>
-      </div>
+    <>
+      <ScrollToTop />
+      <section className="container mx-auto px-4 py-10">
+        {/* Header */}
+        <div className="mb-6 text-center">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#001F5D]">
+            Thời khóa biểu – Lớp {grade}
+          </h1>
+          <p className="text-slate-600 mt-1">
+            Mỗi giáo viên là một thẻ • Môn giảng dạy
+          </p>
+        </div>
 
-      {/* Tabs lớp */}
-      <div className="mb-4 flex items-center justify-center gap-3 flex-wrap">
-        <div className="hidden sm:flex flex-wrap items-center gap-2">
-          {classes.map((c) => (
-            <button
-              key={c}
-              onClick={() => onChangeGrade(c)}
-              className={[
-                "px-4 py-2 rounded-xl border text-sm font-semibold transition",
-                c === grade
-                  ? "bg-[#001F5D] text-white border-[#001F5D]"
-                  : "bg-white text-slate-700 border-slate-200 hover:border-slate-400",
-              ].join(" ")}
-              aria-pressed={c === grade}
+        {/* Tabs lớp */}
+        <div className="mb-4 flex items-center justify-center gap-3 flex-wrap">
+          <div className="hidden sm:flex flex-wrap items-center gap-2">
+            {classes.map((c) => (
+              <button
+                key={c}
+                onClick={() => onChangeGrade(c)}
+                className={[
+                  "px-4 py-2 rounded-xl border text-sm font-semibold transition",
+                  c === grade
+                    ? "bg-[#001F5D] text-white border-[#001F5D]"
+                    : "bg-white text-slate-700 border-slate-200 hover:border-slate-400",
+                ].join(" ")}
+                aria-pressed={c === grade}
+              >
+                Lớp {c}
+              </button>
+            ))}
+          </div>
+          <select
+            className="sm:hidden border rounded-xl px-3 py-2 text-sm"
+            value={grade}
+            onChange={(e) => onChangeGrade(Number(e.target.value))}
+          >
+            {classes.map((c) => (
+              <option key={c} value={c}>
+                Lớp {c}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Filters — mobile: 2 cột cho môn + GV, nút reset full width hàng dưới */}
+        <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3 max-w-3xl mx-auto">
+          <div>
+            <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1">
+              Môn học
+            </label>
+            <select
+              className="w-full border rounded-xl px-2 py-2 text-sm"
+              value={subjectFilter}
+              onChange={(e) => setSubjectFilter(e.target.value)}
             >
-              Lớp {c}
-            </button>
-          ))}
-        </div>
-        <select
-          className="sm:hidden border rounded-xl px-3 py-2 text-sm"
-          value={grade}
-          onChange={(e) => onChangeGrade(Number(e.target.value))}
-        >
-          {classes.map((c) => (
-            <option key={c} value={c}>
-              Lớp {c}
-            </option>
-          ))}
-        </select>
-      </div>
+              {subjectOptions.map((opt) => (
+                <option key={`sub-${opt}`} value={opt}>
+                  {opt === "all" ? "Tất cả" : opt}
+                </option>
+              ))}
+            </select>
+          </div>
 
-      {/* Filters — mobile: 2 cột cho môn + GV, nút reset full width hàng dưới */}
-      <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3 max-w-3xl mx-auto">
-        <div>
-          <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1">
-            Môn học
-          </label>
-          <select
-            className="w-full border rounded-xl px-2 py-2 text-sm"
-            value={subjectFilter}
-            onChange={(e) => setSubjectFilter(e.target.value)}
-          >
-            {subjectOptions.map((opt) => (
-              <option key={`sub-${opt}`} value={opt}>
-                {opt === "all" ? "Tất cả" : opt}
-              </option>
-            ))}
-          </select>
-        </div>
+          <div>
+            <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1">
+              Giáo viên
+            </label>
+            <select
+              className="w-full border rounded-xl px-2 py-2 text-sm"
+              value={teacherFilter}
+              onChange={(e) => setTeacherFilter(e.target.value)}
+            >
+              {teacherOptions.map((opt) => (
+                <option key={`tch-${opt}`} value={opt}>
+                  {opt === "all" ? "Tất cả" : opt}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        <div>
-          <label className="block text-xs sm:text-sm font-semibold text-slate-700 mb-1">
-            Giáo viên
-          </label>
-          <select
-            className="w-full border rounded-xl px-2 py-2 text-sm"
-            value={teacherFilter}
-            onChange={(e) => setTeacherFilter(e.target.value)}
-          >
-            {teacherOptions.map((opt) => (
-              <option key={`tch-${opt}`} value={opt}>
-                {opt === "all" ? "Tất cả" : opt}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Reset: full width ở mobile (col-span-2), cột thứ 3 trên >=sm */}
-        <div className="col-span-2 sm:col-span-1 flex items-end">
-          <button
-            className="w-full rounded-xl border px-4 py-2 text-sm font-semibold
+          {/* Reset: full width ở mobile (col-span-2), cột thứ 3 trên >=sm */}
+          <div className="col-span-2 sm:col-span-1 flex items-end">
+            <button
+              className="w-full rounded-xl border px-4 py-2 text-sm font-semibold
                        border-rose-200 text-rose-700 bg-rose-50 hover:bg-rose-100
                        inline-flex items-center justify-center gap-2"
-            onClick={() => {
-              setSubjectFilter("all");
-              setTeacherFilter("all");
-            }}
-          >
-            <FiTrash2 className="text-rose-600" />
-            Xóa bộ lọc
-          </button>
+              onClick={() => {
+                setSubjectFilter("all");
+                setTeacherFilter("all");
+              }}
+            >
+              <FiTrash2 className="text-rose-600" />
+              Xóa bộ lọc
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* Table */}
-      <div className="rounded-2xl border border-slate-200 overflow-hidden bg-white">
-        {/* wrapper: mobile trượt ngang, desktop bình thường */}
-        <div className="overflow-x-auto sm:overflow-visible">
-          {/* đặt min-width cho mobile để các cột không bị dồn */}
-          {/* 7 cột x ~160px = 1120px (bạn có thể tăng/giảm) */}
-          <div className="min-w-[1120px] sm:min-w-0">
-            {/* Header days */}
-            <div className="grid grid-cols-7 bg-slate-50">
-              {DAYS.map((d) => (
-                <div
-                  key={d.id}
-                  className="px-3 py-3 text-center text-sm font-bold text-slate-700 border-r last:border-r-0 border-slate-200"
-                >
-                  {d.label}
-                </div>
-              ))}
-            </div>
-
-            {/* Body */}
-            <div className="grid grid-cols-7">
-              {DAYS.map((d) => {
-                const items = filteredSlots
-                  .filter((s) => s.day === d.id)
-                  .sort((a, b) => {
-                    const ta = toMinutes(a.start);
-                    const tb = toMinutes(b.start);
-                    if (ta !== tb) return ta - tb;
-                    return a.subject.localeCompare(b.subject);
-                  });
-
-                return (
+        {/* Table */}
+        <div className="rounded-2xl border border-slate-200 overflow-hidden bg-white">
+          {/* wrapper: mobile trượt ngang, desktop bình thường */}
+          <div className="overflow-x-auto sm:overflow-visible">
+            {/* đặt min-width cho mobile để các cột không bị dồn */}
+            {/* 7 cột x ~160px = 1120px (bạn có thể tăng/giảm) */}
+            <div className="min-w-[1120px] sm:min-w-0">
+              {/* Header days */}
+              <div className="grid grid-cols-7 bg-slate-50">
+                {DAYS.map((d) => (
                   <div
                     key={d.id}
-                    className="min-h-[140px] border-r border-t border-slate-200 last:border-r-0 p-3"
+                    className="px-3 py-3 text-center text-sm font-bold text-slate-700 border-r last:border-r-0 border-slate-200"
                   >
-                    {items.length === 0 ? (
-                      <div className="h-full flex items-center justify-center">
-                        <span className="text-slate-300 text-sm">—</span>
-                      </div>
-                    ) : (
-                      <ul className="space-y-2">
-                        {items.map((s, i) => {
-                          const color = getColorClasses(s.subject);
-                          const key = `${d.id}-${s.start}-${s.end}-${s.subject}-${s.teacher}-${i}`;
-                          return (
-                            <li
-                              key={key}
-                              className={[
-                                "rounded-2xl border px-4 py-3 shadow-[0_1px_0_rgba(0,0,0,0.03)]",
-                                color.bg,
-                                color.border,
-                              ].join(" ")}
-                            >
-                              <div
+                    {d.label}
+                  </div>
+                ))}
+              </div>
+
+              {/* Body */}
+              <div className="grid grid-cols-7">
+                {DAYS.map((d) => {
+                  const items = filteredSlots
+                    .filter((s) => s.day === d.id)
+                    .sort((a, b) => {
+                      const ta = toMinutes(a.start);
+                      const tb = toMinutes(b.start);
+                      if (ta !== tb) return ta - tb;
+                      return a.subject.localeCompare(b.subject);
+                    });
+
+                  return (
+                    <div
+                      key={d.id}
+                      className="min-h-[140px] border-r border-t border-slate-200 last:border-r-0 p-3"
+                    >
+                      {items.length === 0 ? (
+                        <div className="h-full flex items-center justify-center">
+                          <span className="text-slate-300 text-sm">—</span>
+                        </div>
+                      ) : (
+                        <ul className="space-y-2">
+                          {items.map((s, i) => {
+                            const color = getColorClasses(s.subject);
+                            const key = `${d.id}-${s.start}-${s.end}-${s.subject}-${s.teacher}-${i}`;
+                            return (
+                              <li
+                                key={key}
                                 className={[
-                                  "font-semibold",
-                                  color.text,
-                                  "text-[15px]",
+                                  "rounded-2xl border px-4 py-3 shadow-[0_1px_0_rgba(0,0,0,0.03)]",
+                                  color.bg,
+                                  color.border,
                                 ].join(" ")}
                               >
-                                {s.subject}{" "}
-                                <span className="text-slate-400">•</span>{" "}
-                                {s.start}–{s.end}
-                              </div>
-                              <div className="text-[13px] text-slate-700 mt-0.5">
-                                • {s.teacher} · {s.room}
-                              </div>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    )}
-                  </div>
-                );
-              })}
+                                <div
+                                  className={[
+                                    "font-semibold",
+                                    color.text,
+                                    "text-[15px]",
+                                  ].join(" ")}
+                                >
+                                  {s.subject}{" "}
+                                  <span className="text-slate-400">•</span>{" "}
+                                  {s.start}–{s.end}
+                                </div>
+                                <div className="text-[13px] text-slate-700 mt-0.5">
+                                  • {s.teacher} · {s.room}
+                                </div>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Legend */}
-      <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-sm">
-        {Array.from(new Set(slots.map((s) => s.subject))).map((subj) => {
-          const color = getColorClasses(subj);
-          return (
-            <div key={subj} className="flex items-center gap-2">
-              <span
-                className={[
-                  "inline-block w-3 h-3 rounded ring-1",
-                  color.bg,
-                  color.border,
-                ].join(" ")}
-              />
-              <span className="text-slate-700">{subj}</span>
-            </div>
-          );
-        })}
-      </div>
-    </section>
+        {/* Legend */}
+        <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-sm">
+          {Array.from(new Set(slots.map((s) => s.subject))).map((subj) => {
+            const color = getColorClasses(subj);
+            return (
+              <div key={subj} className="flex items-center gap-2">
+                <span
+                  className={[
+                    "inline-block w-3 h-3 rounded ring-1",
+                    color.bg,
+                    color.border,
+                  ].join(" ")}
+                />
+                <span className="text-slate-700">{subj}</span>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </>
   );
 }
